@@ -1,0 +1,8 @@
+# HF Space runtime: the agent's own deps plus the Gradio SDK.
+# Mirrors the project requirements.txt; keep the two in step.
+gradio
+langgraph
+langchain
+langchain-openai
+pydantic
+requests
