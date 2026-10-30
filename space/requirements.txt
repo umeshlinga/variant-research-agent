@@ -1,6 +1,7 @@
-# HF Space runtime: the agent's own deps plus the Gradio SDK.
+# Docker Space runtime: the agent's own deps plus the web server.
 # Mirrors the project requirements.txt; keep the two in step.
-gradio
+fastapi
+uvicorn[standard]
 langgraph
 langchain
 langchain-openai
