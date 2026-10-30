@@ -22,12 +22,13 @@ framework chrome) and adds a data-visualisation layer drawn only from
 real data: a predictor heatmap, histograms of the actual local test-set
 score distributions with this variant's value marked, a predictor
 agreement donut, reviewer severity breakdown, and the published
-benchmark results charted from BENCHMARK_REPORT.md.
+benchmark results charted from FULL_BENCHMARK_REPORT.md.
 
 This Space runs in **offline mode**: deterministic, local data only,
 no LLM, no network gatherers — the same configuration as the published
-benchmark (300 temporal-split variants: 89.2% accuracy on concluded
-cases, 100% decline precision). **Not for clinical use.**
+benchmark (the full temporal test set: all 27,742 variants run end
+to end, 92.1% accuracy on concluded cases, 100% decline precision).
+**Not for clinical use.**
 
 Source, documentation and full benchmark:
 https://github.com/umeshlinga/variant-research-agent

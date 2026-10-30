@@ -15,23 +15,26 @@ hybrid-perturb-bench (evaluation discipline).
 > Not for clinical use. Research / portfolio project only.
 > Licence: MIT (see LICENSE).
 
-## Benchmark headline (Phase 4, offline, n = 300)
+## Benchmark headline (full set, offline, n = 27,742)
 
-Stratified sample of the vus-evidence-agent temporal test set, full
-pipeline, deterministic offline mode. Every number below comes from
-the recorded run in `benchmark/` — see **BENCHMARK_REPORT.md** for
-methods, the sampling frame (including its empty still-uncertain
-stratum), failure examples, and what this does and does not prove.
+The entire vus-evidence-agent temporal test set, full pipeline,
+deterministic offline mode, every variant run end to end. Every
+number below comes from the recorded run in `benchmark/fullset/` —
+see **FULL_BENCHMARK_REPORT.md** for methods, the failure gallery,
+and what this does and does not prove. (The earlier 300-variant
+sample estimates in BENCHMARK_REPORT.md are superseded by these
+population values; that report remains the record of the sample run.)
 
 | Metric | Value |
 |---|---|
-| Coverage (sampled variants resolved) | 300/300 |
-| Concluded / declined | 111 / 189 (decline rate 0.630) |
-| Accuracy on concluded cases | **0.8919** (99/111) |
-| Calibration, concluded scored subset | ECE 0.0513, Brier 0.0833 (n = 111) |
+| Coverage (variants resolved and run end-to-end) | 27,742/27,742 |
+| Concluded / declined | 10,359 / 17,383 (decline rate 0.6266) |
+| Accuracy on concluded cases | **0.9214** (9,545/10,359) |
+| AUROC, concluded scored cases | **0.9705** (n = 10,357) |
+| Calibration, concluded scored subset | ECE 0.0248, Brier 0.0625 (n = 10,357) |
 | Decline precision | **1.000** (no declined case had a right-leaning judgment underneath) |
-| Reviewer downgrades | 104/111 concluded (do not concentrate on errors — see report) |
-| Agent analyses executed | 900, zero failed or timed out |
+| Reviewer downgrades | 9,567/10,359 concluded (92.35%; they hit correct conclusions, 94.68%, more often than wrong ones, 65.11% — see report) |
+| Agent analyses executed | 83,226, zero failed or timed out |
 
 ## Pipeline
 

@@ -611,7 +611,7 @@ body{background:linear-gradient(180deg,#fbfdff 0,#ffffff 360px)}
           <a class="btn btn-primary" href="#product">Research a variant</a>
           <a class="btn btn-ghost" href="#science">See the benchmark</a>
         </div>
-        <div class="hero-trust"><span class="pulse-dot"></span><span class="sys-txt">SYSTEM ONLINE</span><span class="sys-mono">CALIBRATED MODEL AUROC 0.970 · 27,748-VARIANT TEMPORAL TEST SET · EVERY CLAIM CITED</span></div>
+        <div class="hero-trust"><span class="pulse-dot"></span><span class="sys-txt">SYSTEM ONLINE</span><span class="sys-mono">CALIBRATED MODEL AUROC 0.9705 ON 10,357 SCORED VARIANTS · FULL TEST SET BENCHMARKED · EVERY CLAIM CITED</span></div>
       </div>
       <div class="hero-visual">
         <div class="helix-card art-card">
@@ -632,13 +632,13 @@ body{background:linear-gradient(180deg,#fbfdff 0,#ffffff 360px)}
     </div>
     <div class="stats-band" id="benchmark">
     <div class="stats" id="stats">
-      <div class="stat"><div class="stat-num" data-count="300" data-dec="0">0</div><div class="stat-label">variants benchmarked on a ClinVar temporal split</div></div>
-      <div class="stat"><div class="stat-num" data-count="89.2" data-dec="1" data-suffix="%">0</div><div class="stat-label">accuracy on concluded cases (99 of 111)</div></div>
-      <div class="stat"><div class="stat-num" data-count="100" data-dec="0" data-suffix="%">0</div><div class="stat-label">decline precision — 189 of 189 declines were protective</div></div>
-      <div class="stat"><div class="stat-num" data-count="0.970" data-dec="3">0</div><div class="stat-label">calibrated model AUROC on the temporal test set</div></div>
+      <div class="stat"><div class="stat-num" data-count="27742" data-dec="0">0</div><div class="stat-label">variants benchmarked end to end on a ClinVar temporal split</div></div>
+      <div class="stat"><div class="stat-num" data-count="92.1" data-dec="1" data-suffix="%">0</div><div class="stat-label">accuracy on concluded cases (9,545 of 10,359)</div></div>
+      <div class="stat"><div class="stat-num" data-count="100" data-dec="0" data-suffix="%">0</div><div class="stat-label">decline precision — 17,383 of 17,383 declines were protective</div></div>
+      <div class="stat"><div class="stat-num" data-count="0.9705" data-dec="4">0</div><div class="stat-label">calibrated model AUROC on concluded scored cases</div></div>
       <div class="stat"><div class="stat-num" data-count="48" data-dec="0">0</div><div class="stat-label">automated tests passing</div></div>
     </div>
-    <p class="stats-note">Every number above is from the published benchmark — see the <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">benchmark report</a>.</p>
+    <p class="stats-note">Every number above is from the published full-set benchmark — see the <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/FULL_BENCHMARK_REPORT.md" target="_blank" rel="noopener">full-set benchmark report</a>.</p>
     </div>
   </section>
 
@@ -681,7 +681,7 @@ body{background:linear-gradient(180deg,#fbfdff 0,#ffffff 360px)}
   <section class="section company" id="science">
     <div class="kicker">THE SCIENCE</div>
     <h2 class="big-title">Benchmarked — weaknesses included</h2>
-    <p class="section-sub">Published results from the temporal-split benchmark: 300 variants the agent had never been scored on, judged against their later ClinVar reclassifications. Source: BENCHMARK_REPORT.md in the repository. The fourth panel is the reviewer’s measured weakness, published as-is — the same honesty rule as the declines.</p>
+    <p class="section-sub">Published results from the full temporal-split benchmark: every one of the 27,742 variants in the test set, run end to end and judged against their later ClinVar reclassifications. Source: FULL_BENCHMARK_REPORT.md in the repository. The fourth panel is the reviewer’s measured weakness, published as-is, and the worst single failure is named below it, under the same honesty rule as the declines.</p>
     <div class="card uni-card reveal">
       <div class="poster-kicker" style="color:var(--violet)">EVIDENCE UNIVERSE</div>
       <h3 style="margin:2px 0 4px">The test set as one living network</h3>
@@ -692,41 +692,44 @@ body{background:linear-gradient(180deg,#fbfdff 0,#ffffff 360px)}
     <div class="bench-grid">
       <div class="card bench-card poster p-green reveal">
         <div class="poster-kicker">BENCHMARK · 01 — VERDICTS</div>
-        <h3>Verdicts on 300 benchmark variants</h3>
+        <h3>Verdicts on all 27,742 benchmark variants</h3>
         <p class="bc-sub">The agent concludes only when the evidence clears its bar — and declines the rest.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Concluded</span><span class="hv">111 · 37.0%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="37"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Declined (evidence below the bar)</span><span class="hv">189 · 63.0%</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="63"></div></div></div>
-        <p class="cap">The agent concludes only where calibrated support exists. <b>Every one of the 189 declines was protective</b>: forcing a verdict from its own underlying scores would not have produced a single extra correct answer (decline precision 1.000). All 900 sandboxed analyses across the 300 runs also completed — <b>0 failed, 0 timed out</b>.</p>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Concluded</span><span class="hv">10,359 · 37.3%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="37.3"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Declined (evidence below the bar)</span><span class="hv">17,383 · 62.7%</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="62.7"></div></div></div>
+        <p class="cap">The agent concludes only where calibrated support exists. <b>Every one of the 17,383 declines was protective</b>: forcing a verdict from its own underlying scores would not have produced a single extra correct answer, because every variant in this test set was later reclassified by ClinVar (decline precision 1.000). All 83,226 sandboxed analyses across the 27,742 runs also completed, <b>0 failed, 0 timed out</b>.</p>
       </div>
       <div class="card bench-card poster p-green reveal">
         <div class="poster-kicker">BENCHMARK · 02 — ACCURACY</div>
-        <h3>Accuracy on the 111 concluded cases</h3>
+        <h3>Accuracy on the 10,359 concluded cases</h3>
         <p class="bc-sub">Against the eventual ClinVar truth, split by the truth class of the variant.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Overall</span><span class="hv">89.2% · 99 of 111</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="89.2"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Pathogenic-truth</span><span class="hv">88.0% · 44 of 50</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="88"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Benign-truth</span><span class="hv">90.2% · 55 of 61</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="90.2"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Overall</span><span class="hv">92.1% · 9,545 of 10,359</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="92.1"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Pathogenic-truth</span><span class="hv">89.5% · 4,209 of 4,702</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="89.5"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Benign-truth</span><span class="hv">94.3% · 5,336 of 5,657</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="94.3"></div></div></div>
         <p class="cap">Accuracy is scored against the classification ClinVar later settled on — labels the agent never saw. It is <b>right about nine times in ten</b> on the variants it does answer, and silent on the rest.</p>
       </div>
       <div class="card bench-card poster p-blue reveal">
         <div class="poster-kicker">BENCHMARK · 03 — CALIBRATION</div>
         <h3>Calibration — do the probabilities mean what they say?</h3>
         <p class="bc-sub">Expected calibration error and Brier score of the reported probabilities. Lower is better on both; bar lengths are scaled to 0.10.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">ECE · concluded subset (n = 111)</span><span class="hv">0.0513</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="51.3"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">ECE · full test set (n = 10,357)</span><span class="hv">0.0248</span></div><div class="hbar"><div class="hbar-fill fill-grey bench-fill" data-w="24.8"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Brier · concluded subset</span><span class="hv">0.0833</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="83.3"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Brier · full test set</span><span class="hv">0.0625</span></div><div class="hbar"><div class="hbar-fill fill-grey bench-fill" data-w="62.5"></div></div></div>
-        <p class="cap">The benchmark subset holds only 111 scored variants, so its calibration runs noisier than the model’s full test set — <b>the gap is consistent with sampling noise</b>, not with the probabilities misbehaving inside the agent.</p>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">ECE · concluded scored cases (n = 10,357)</span><span class="hv">0.0248</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="24.8"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Brier · concluded scored cases (n = 10,357)</span><span class="hv">0.0625</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="62.5"></div></div></div>
+        <p class="cap">These are population values, not sample estimates: the full test set was run end to end, and the concluded scored set is the 10,357 cases carrying a recorded model probability. The probabilities mean what they say, so a case scored near 0.9 turns out pathogenic about nine times in ten.</p>
       </div>
       <div class="card bench-card poster p-red reveal">
         <div class="poster-kicker">BENCHMARK · 04 — REVIEWER, HONEST WEAKNESS</div>
         <h3>Reviewer behaviour — the weakness, published as-is</h3>
-        <p class="bc-sub">How the adversarial reviewer treated the 111 concluded verdicts.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Received a material critique</span><span class="hv">100% · 111 of 111</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="100"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Confidence downgraded</span><span class="hv">93.7% · 104 of 111</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="93.7"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was correct</span><span class="hv">97.0% · 96 of 99</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="97"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was wrong</span><span class="hv">66.7% · 8 of 12</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="66.7"></div></div></div>
-        <p class="cap">The reviewer’s strength challenge fires on nearly every model verdict, because a model verdict’s support usually traces to one correlated predictor family — so <b>it downgrades correct conclusions (97.0%) even more often than wrong ones (66.7%)</b>. Its measured value is the audit trail in every dossier, not error detection.</p>
+        <p class="bc-sub">How the adversarial reviewer treated the 10,359 concluded verdicts.</p>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Received a material critique</span><span class="hv">99.6% · 10,322 of 10,359</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="99.6"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Confidence downgraded</span><span class="hv">92.35% · 9,567 of 10,359</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="92.35"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was correct</span><span class="hv">94.68% · 9,037 of 9,545</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="94.68"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was wrong</span><span class="hv">65.11% · 530 of 814</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="65.11"></div></div></div>
+        <p class="cap">The reviewer’s strength challenge fires on nearly every model verdict, because a model verdict’s support usually traces to one correlated predictor family — so <b>it downgrades correct conclusions (94.68%) even more often than wrong ones (65.11%)</b>. Its measured value is the audit trail in every dossier, not error detection.</p>
       </div>
+    </div>
+    <div class="card uni-card reveal" style="margin-top:18px">
+      <div class="poster-kicker" style="color:var(--red)">BENCHMARK · 05 — WORST FAILURE, NAMED</div>
+      <h3 style="margin:2px 0 4px">The most confident miss in 27,742 runs</h3>
+      <p class="bc-sub">GCK NM_000162.5:c.203G&gt;A (p.Gly68Asp), ClinVar allele 961077. The dossier concluded pathogenic-leaning at P = 0.999; ClinVar now says <b>Likely benign</b>. The reviewer did flag the case, noting that its strong language rested on a single independent evidence family, but under the current rules a flag cannot reverse a verdict. It is published here because a benchmark that hides its worst case is marketing, not measurement. The full failure gallery, the top 10 of 814 wrong conclusions, is in FULL_BENCHMARK_REPORT.md.</p>
     </div>
   </section>
 
@@ -846,7 +849,7 @@ const io = new IntersectionObserver(entries => {
     if (el.classList.contains("stat-num")){
       const target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || "0"), suf = el.dataset.suffix || "";
       const t0 = performance.now(), dur = 1300;
-      (function step(now){ const k = easeOut(Math.min(1, (now - t0) / dur)); el.textContent = (target * k).toFixed(dec) + suf; if (k < 1) requestAnimationFrame(step); })(t0);
+      (function step(now){ const k = easeOut(Math.min(1, (now - t0) / dur)); el.textContent = (dec === 0 ? Math.round(target * k).toLocaleString("en-US") : (target * k).toFixed(dec)) + suf; if (k < 1) requestAnimationFrame(step); })(t0);
     }
     if (el.classList.contains("bench-fill")){ el.style.width = el.dataset.w + "%"; }
   });
