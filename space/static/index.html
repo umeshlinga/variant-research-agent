@@ -227,6 +227,98 @@ details.dossier{margin-top:22px;border:1px solid var(--card-border);border-radiu
 details.dossier summary{cursor:pointer;font-weight:600;font-size:14px;padding:14px 18px;background:var(--surface)}
 details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mono',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;word-break:break-word;max-height:560px;overflow-y:auto}
 .prov{font-size:12.5px;color:var(--faint);line-height:1.65;margin-top:16px}
+
+/* ================= v3: high-tech console layer ================= */
+.hero .mesh{background:
+  radial-gradient(560px 340px at 12% 8%,rgba(18,165,148,.16),transparent 65%),
+  radial-gradient(640px 380px at 88% 0%,rgba(11,122,55,.14),transparent 65%),
+  radial-gradient(520px 320px at 55% 110%,rgba(249,171,0,.10),transparent 65%),
+  linear-gradient(rgba(26,115,232,.055) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(26,115,232,.055) 1px,transparent 1px);
+  background-size:auto,auto,auto,36px 36px,36px 36px}
+.btn-primary{background:linear-gradient(120deg,#0b7a37,#12a594,#1a73e8,#0b7a37);background-size:220% 220%;animation:btnShift 7s ease infinite}
+@keyframes btnShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.sys{display:flex;align-items:center;gap:8px}
+.pulse-dot{width:9px;height:9px;border-radius:50%;background:#17a34a;box-shadow:0 0 0 0 rgba(23,163,74,.45);animation:pulseDot 2.2s infinite}
+@keyframes pulseDot{70%{box-shadow:0 0 0 9px rgba(23,163,74,0)}100%{box-shadow:0 0 0 0 rgba(23,163,74,0)}}
+.sys-txt{font-size:11px;font-weight:700;letter-spacing:.09em;color:var(--green-dark)}
+.sys-mono{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--faint);white-space:nowrap}
+/* glass panels with gradient borders */
+.viz-card,.tile,.stat{border:1.5px solid transparent;background:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,linear-gradient(135deg,rgba(11,122,55,.38),rgba(26,115,232,.30),rgba(18,165,148,.38)) border-box;backdrop-filter:blur(8px)}
+.bench-card{border:1.5px solid transparent;background:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,linear-gradient(135deg,rgba(11,122,55,.38),rgba(26,115,232,.30),rgba(18,165,148,.38)) border-box;backdrop-filter:blur(8px)}
+.card:hover,.viz-card:hover,.tile:hover{box-shadow:var(--shadow-lg),0 10px 34px rgba(11,122,55,.10)}
+.v-path{box-shadow:var(--shadow-lg),0 14px 44px rgba(185,28,28,.13)}
+.v-ben{box-shadow:var(--shadow-lg),0 14px 44px rgba(11,122,55,.13)}
+.v-dec{box-shadow:var(--shadow-lg),0 14px 44px rgba(249,171,0,.16)}
+/* tech section labels */
+.sec-label{font-family:'Roboto Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;margin-bottom:5px}
+.sec-head2{margin-top:34px}
+.gene-panel .sec-head2{margin-top:0}
+.sec-head2 .section-sub{max-width:820px}
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+/* sticky mini verdict bar */
+#mini-bar{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);box-shadow:0 8px 28px rgba(32,33,36,.10);transform:translateY(-110%);transition:transform .35s cubic-bezier(.22,.8,.3,1)}
+#mini-bar.show{transform:none}
+.mini-in{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.mini-name{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-prob{font-family:'Roboto Mono',monospace;font-size:12.5px;color:var(--grey);white-space:nowrap}
+#mini-close{margin-left:auto;background:none;border:none;font-size:19px;line-height:1;color:var(--grey);cursor:pointer;padding:2px 6px}
+/* report actions */
+.report-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn-mini{font:inherit;font-size:13.5px;font-weight:600;background:#fff;border:1.5px solid var(--border);color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;transition:all .15s ease}
+.btn-mini:hover{border-color:var(--green);color:var(--green-dark);box-shadow:0 4px 14px rgba(11,122,55,.16);transform:translateY(-1px)}
+.actions-note{font-size:12.5px;color:var(--faint)}
+/* benchmark poster panels */
+.bench-grid{grid-template-columns:repeat(2,1fr)}
+.bench-card.p-green{background:linear-gradient(180deg,rgba(230,244,234,.95),rgba(255,255,255,.97)) padding-box,linear-gradient(135deg,rgba(11,122,55,.45),rgba(18,165,148,.35)) border-box}
+.bench-card.p-red{background:linear-gradient(180deg,rgba(252,232,230,.95),rgba(255,255,255,.97)) padding-box,linear-gradient(135deg,rgba(185,28,28,.40),rgba(249,115,22,.35)) border-box}
+.bench-card.p-blue{background:linear-gradient(180deg,rgba(232,240,254,.95),rgba(255,255,255,.97)) padding-box,linear-gradient(135deg,rgba(26,115,232,.40),rgba(18,165,148,.35)) border-box}
+.poster-kicker{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.13em;color:var(--faint);margin-bottom:7px}
+.cap{font-size:12.5px;color:var(--grey);line-height:1.6;border-top:1px dashed var(--border);padding-top:11px;margin:14px 0 0}
+.cap b{color:var(--ink)}
+.fill-red{background:linear-gradient(90deg,#dc2626,#ef4444)}
+.bench-card .hbar-top .hv{font-size:14px}
+/* heatmap v2 + evidence heat strip */
+.hm-cell{box-shadow:0 6px 18px rgba(32,33,36,.10)}
+.heat-legend{margin-top:12px}
+.heat-scale{height:10px;border-radius:999px;background:linear-gradient(90deg,#1e40af,#0d9488,#16a34a,#facc15,#f97316,#b91c1c)}
+.heat-scale-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--grey);margin-top:5px;font-weight:500}
+.heat-note{font-size:12px;color:var(--faint);margin-top:5px;line-height:1.55}
+.strip{border:1px solid var(--card-border);border-radius:18px;background:#fff;box-shadow:var(--shadow);padding:16px 18px;margin-top:14px}
+.strip-row{display:flex;align-items:center;gap:12px;padding:6px 0}
+.strip-row + .strip-row{border-top:1px solid #f4f5f6}
+.strip-idx{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--faint);width:22px;flex:0 0 auto}
+.strip-src{font-size:13px;font-weight:600;width:196px;line-height:1.35;flex:0 0 auto}
+.strip-src small{display:block;font-weight:500;color:var(--faint);font-size:11px}
+.strip-track{flex:1;height:14px;background:#f1f3f4;border-radius:999px;overflow:hidden;min-width:50px}
+.strip-fill{display:block;height:100%;width:0;border-radius:999px;transition:width 1s cubic-bezier(.22,.8,.3,1)}
+/* gene and variant context panel */
+.gene-panel{padding:22px}
+.gene-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.gene-symbol{font-family:'Space Grotesk';font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.gene-name{font-family:'Roboto Mono',monospace;font-size:12.5px;color:var(--grey);margin-top:7px;line-height:1.6;word-break:break-word}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:13.5px;margin:16px 0 0;padding:0}
+.kv dt{color:var(--grey);font-weight:500}
+.kv dd{margin:0;font-weight:600}
+.kv dd.mono{font-family:'Roboto Mono',monospace;font-weight:500;font-size:12.5px}
+.ideo-cap,.panel-cap{font-size:12.5px;color:var(--grey);line-height:1.55;margin-top:9px}
+.panel-cap b{color:var(--ink)}
+.allele-flow{display:flex;align-items:center;gap:14px;margin-top:2px}
+.allele-tile{flex:1;text-align:center;border-radius:16px;padding:15px 10px;border:1.5px solid var(--border);min-width:0}
+.allele-tile .a-lab{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--grey)}
+.allele-tile .a-val{font-family:'Roboto Mono',monospace;font-size:27px;font-weight:500;margin-top:4px;word-break:break-all}
+.allele-ref{background:linear-gradient(180deg,#eef2f7,#fff)}
+.allele-alt{background:linear-gradient(180deg,#e6f4ea,#fff);border-color:#a3d9b1}
+.allele-arrow{font-size:22px;color:var(--green-dark);font-weight:700;flex:0 0 auto}
+.prov{font-family:'Roboto Mono',monospace;font-size:11.5px}
+@media (max-width:900px){
+  .gene-grid{grid-template-columns:1fr}
+  .strip-src{width:128px}
+  .sys-mono{display:none}
+}
+
 /* empty / error */
 .empty-card{text-align:center;border:1.5px dashed var(--border);border-radius:22px;padding:42px 26px;margin-top:26px;color:var(--grey);animation:rise .5s ease}
 .empty-card h3{color:var(--ink);font-size:20px;margin:0 0 8px}
@@ -258,6 +350,7 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
 </head>
 <body>
 
+<div id="mini-bar" aria-hidden="true"><div class="wrap mini-in"><span class="mini-name" id="mini-name"></span><span class="chip chip-neu" id="mini-chip"></span><span class="mini-prob" id="mini-prob"></span><button id="mini-close" type="button" aria-label="Dismiss">×</button></div></div>
 <header class="topbar">
   <div class="wrap topbar-in">
     <a class="brand" href="/">
@@ -265,6 +358,7 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
       <span><span class="product">Variant Research Agent</span><br><span class="brand-sub">by Omevra</span></span>
     </a>
     <nav class="nav">
+      <span class="sys"><span class="pulse-dot"></span><span class="sys-txt">SYSTEM ONLINE</span><span class="sys-mono">AUROC 0.970 · 27,748 variants</span></span>
       <a href="https://github.com/umeshlinga/variant-research-agent" target="_blank" rel="noopener">GitHub</a>
       <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">Benchmark</a>
       <span class="pill">Research only</span>
@@ -315,27 +409,46 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
   </section>
 
   <section class="section" id="benchmark">
+    <div class="sec-label">00 / BENCHMARK</div>
     <div class="section-head"><h2 class="section-title">How it performed</h2></div>
-    <p class="section-sub">Published results from the temporal-split benchmark: 300 variants the agent had never been scored on, judged against their later ClinVar reclassifications. Source: BENCHMARK_REPORT.md in the repository.</p>
+    <p class="section-sub">Published results from the temporal-split benchmark: 300 variants the agent had never been scored on, judged against their later ClinVar reclassifications. Source: BENCHMARK_REPORT.md in the repository. The fourth panel is the reviewer’s measured weakness, published as-is — the same honesty rule as the declines.</p>
     <div class="bench-grid">
-      <div class="card bench-card">
-        <h3>Verdicts on 300 variants</h3>
+      <div class="card bench-card poster p-green reveal">
+        <div class="poster-kicker">BENCHMARK · 01 — VERDICTS</div>
+        <h3>Verdicts on 300 benchmark variants</h3>
         <p class="bc-sub">The agent concludes only when the evidence clears its bar — and declines the rest.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Concluded</span><span class="hv">111</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="37"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Declined (insufficient evidence)</span><span class="hv">189</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="63"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Concluded</span><span class="hv">111 · 37.0%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="37"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Declined (evidence below the bar)</span><span class="hv">189 · 63.0%</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="63"></div></div></div>
+        <p class="cap">The agent concludes only where calibrated support exists. <b>Every one of the 189 declines was protective</b>: forcing a verdict from its own underlying scores would not have produced a single extra correct answer (decline precision 1.000). All 900 sandboxed analyses across the 300 runs also completed — <b>0 failed, 0 timed out</b>.</p>
       </div>
-      <div class="card bench-card">
-        <h3>Accuracy on concluded cases</h3>
+      <div class="card bench-card poster p-green reveal">
+        <div class="poster-kicker">BENCHMARK · 02 — ACCURACY</div>
+        <h3>Accuracy on the 111 concluded cases</h3>
         <p class="bc-sub">Against the eventual ClinVar truth, split by the truth class of the variant.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Overall (99 of 111)</span><span class="hv">89.2%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="89.2"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Pathogenic-truth (44 of 50)</span><span class="hv">88.0%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="88"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Benign-truth (55 of 61)</span><span class="hv">90.2%</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="90.2"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Overall</span><span class="hv">89.2% · 99 of 111</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="89.2"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Pathogenic-truth</span><span class="hv">88.0% · 44 of 50</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="88"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Benign-truth</span><span class="hv">90.2% · 55 of 61</span></div><div class="hbar"><div class="hbar-fill fill-green bench-fill" data-w="90.2"></div></div></div>
+        <p class="cap">Accuracy is scored against the classification ClinVar later settled on — labels the agent never saw. It is <b>right about nine times in ten</b> on the variants it does answer, and silent on the rest.</p>
       </div>
-      <div class="card bench-card">
-        <h3>Calibration (ECE, lower is better)</h3>
-        <p class="bc-sub">Expected calibration error of the probabilities the agent reports. The concluded-subset figure is noisier — only 111 of the model's scored variants were concluded.</p>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Concluded subset (n = 111)</span><span class="hv">0.0513</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="85.5"></div></div></div>
-        <div class="hbar-row"><div class="hbar-top"><span class="hl">Full test set reference (n = 10,357)</span><span class="hv">0.0248</span></div><div class="hbar"><div class="hbar-fill fill-grey bench-fill" data-w="41.3"></div></div></div>
+      <div class="card bench-card poster p-blue reveal">
+        <div class="poster-kicker">BENCHMARK · 03 — CALIBRATION</div>
+        <h3>Calibration — do the probabilities mean what they say?</h3>
+        <p class="bc-sub">Expected calibration error and Brier score of the reported probabilities. Lower is better on both; bar lengths are scaled to 0.10.</p>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">ECE · concluded subset (n = 111)</span><span class="hv">0.0513</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="51.3"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">ECE · full test set (n = 10,357)</span><span class="hv">0.0248</span></div><div class="hbar"><div class="hbar-fill fill-grey bench-fill" data-w="24.8"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Brier · concluded subset</span><span class="hv">0.0833</span></div><div class="hbar"><div class="hbar-fill fill-blue bench-fill" data-w="83.3"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Brier · full test set</span><span class="hv">0.0625</span></div><div class="hbar"><div class="hbar-fill fill-grey bench-fill" data-w="62.5"></div></div></div>
+        <p class="cap">The benchmark subset holds only 111 scored variants, so its calibration runs noisier than the model’s full test set — <b>the gap is consistent with sampling noise</b>, not with the probabilities misbehaving inside the agent.</p>
+      </div>
+      <div class="card bench-card poster p-red reveal">
+        <div class="poster-kicker">BENCHMARK · 04 — REVIEWER, HONEST WEAKNESS</div>
+        <h3>Reviewer behaviour — the weakness, published as-is</h3>
+        <p class="bc-sub">How the adversarial reviewer treated the 111 concluded verdicts.</p>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Received a material critique</span><span class="hv">100% · 111 of 111</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="100"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Confidence downgraded</span><span class="hv">93.7% · 104 of 111</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="93.7"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was correct</span><span class="hv">97.0% · 96 of 99</span></div><div class="hbar"><div class="hbar-fill fill-red bench-fill" data-w="97"></div></div></div>
+        <div class="hbar-row"><div class="hbar-top"><span class="hl">Downgraded when the verdict was wrong</span><span class="hv">66.7% · 8 of 12</span></div><div class="hbar"><div class="hbar-fill fill-amber bench-fill" data-w="66.7"></div></div></div>
+        <p class="cap">The reviewer’s strength challenge fires on nearly every model verdict, because a model verdict’s support usually traces to one correlated predictor family — so <b>it downgrades correct conclusions (97.0%) even more often than wrong ones (66.7%)</b>. Its measured value is the audit trail in every dossier, not error detection.</p>
       </div>
     </div>
   </section>
@@ -431,6 +544,7 @@ const STAGES = ["Planning the investigation", "Gathering evidence", "Running ana
 let stageTimer = null;
 
 function showLoading(variant){
+  hideMini();
   const pills = STAGES.map((s, i) => `<span class="stage" data-i="${i}">${esc(s)}</span>`).join("");
   $("#results").innerHTML =
     `<div class="card loading"><h3>Researching ${esc(variant)}…</h3>` +
@@ -449,7 +563,7 @@ function showLoading(variant){
 function stopLoading(){ clearInterval(stageTimer); stageTimer = null; }
 
 function showUnresolvable(variant, message){
-  stopLoading();
+  stopLoading(); hideMini();
   $("#results").innerHTML =
     `<div class="empty-card"><h3>That variant could not be resolved</h3>` +
     `<p><code>${esc(variant)}</code> is not in the local temporal test set this demo runs on (27,748 variants). Nothing was guessed and no dossier was invented.</p>` +
@@ -458,7 +572,7 @@ function showUnresolvable(variant, message){
 }
 
 function showError(message){
-  stopLoading();
+  stopLoading(); hideMini();
   $("#results").innerHTML =
     `<div class="empty-card"><h3>The research request failed</h3>` +
     `<p>${esc(message || "Something went wrong while running the pipeline. Please try again.")}</p></div>`;
@@ -477,7 +591,7 @@ async function doResearch(variant){
     stopLoading();
     if (!data.ok){ showUnresolvable(variant, data.error); return; }
     $("#results").innerHTML = renderReport(data);
-    animateReport(data);
+    animateReport(data); wireReportActions(data); setMini(data);
     $("#results").scrollIntoView({behavior: "smooth", block: "start"});
   } catch (e) {
     showError("The server could not be reached or returned an error.");
@@ -536,29 +650,147 @@ function gaugeSVG(p){
   </svg>`;
 }
 
-/* ---------------- predictor heatmap ---------------- */
-function heatColor(v){
-  const stops = [[0, [227, 244, 233]], [0.45, [253, 246, 214]], [0.75, [252, 214, 205]], [1, [165, 14, 14]]];
+/* ---------------- section headers (tech chrome) ---------------- */
+function secHead(num, label, title, sub){
+  return `<div class="sec-head2"><div class="sec-label">${num} / ${esc(label)}</div>` +
+    `<h3 class="section-title" style="font-size:21px;margin:0">${esc(title)}</h3>` +
+    (sub ? `<p class="section-sub">${esc(sub)}</p>` : "") + `</div>`;
+}
+
+/* ---------------- heatmap v2: vivid multi-stop scale ---------------- */
+const SCI_STOPS = [[0, [30, 64, 175]], [0.2, [13, 148, 136]], [0.4, [22, 163, 74]], [0.6, [250, 204, 21]], [0.8, [249, 115, 22]], [1, [185, 28, 28]]];
+const AGR_STOPS = [[0, [237, 233, 254]], [0.55, [167, 139, 250]], [1, [109, 40, 217]]];
+function scaleColor(stops, v){
+  v = Math.max(0, Math.min(1, v));
   for (let i = 1; i < stops.length; i++){
     if (v <= stops[i][0]){
       const [x0, c0] = stops[i - 1], [x1, c1] = stops[i];
       const k = (v - x0) / (x1 - x0);
-      const c = c0.map((c, j) => Math.round(c + (c1[j] - c) * k));
-      return `rgb(${c[0]},${c[1]},${c[2]})`;
+      return c0.map((a, j) => Math.round(a + (c1[j] - a) * k));
     }
   }
-  return "rgb(165,14,14)";
+  return stops[stops.length - 1][1];
 }
-function heatCell(label, value, sub, missingNote, delay){
-  if (value == null){
+function fgFor(c){ const L = (0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]) / 255; return L > 0.62 ? "#1d1d1f" : "#ffffff"; }
+function heatCell2(label, display, scaleVal, sub, delay, kind){
+  if (scaleVal == null || display == null){
     return `<div class="hm-cell hm-none" style="animation-delay:${delay}ms"><div class="hm-label">${esc(label)}</div>` +
-      `<div class="hm-value">—</div><div class="hm-sub">${esc(missingNote)}</div></div>`;
+      `<div class="hm-value">—</div><div class="hm-sub">${esc(sub)}</div></div>`;
   }
-  const v = Math.max(0, Math.min(1, value));
-  const fg = v >= 0.82 ? "#ffffff" : "#1d1d1f";
-  return `<div class="hm-cell" style="background:${heatColor(v)};color:${fg};animation-delay:${delay}ms">` +
-    `<div class="hm-label">${esc(label)}</div><div class="hm-value">${value.toFixed(3)}</div>` +
+  const c = scaleColor(kind === "agree" ? AGR_STOPS : SCI_STOPS, scaleVal);
+  return `<div class="hm-cell" style="background:rgb(${c[0]},${c[1]},${c[2]});color:${fgFor(c)};animation-delay:${delay}ms">` +
+    `<div class="hm-label">${esc(label)}</div><div class="hm-value">${esc(display)}</div>` +
     `<div class="hm-sub">${esc(sub)}</div></div>`;
+}
+
+/* ------- evidence heat strip (family weighting mirrors reviewer.py) ------ */
+function familyOf(e){
+  const sid = e.source_id || "";
+  if (sid.startsWith("CLINVAR:")) return "frozen ClinVar record";
+  if (sid.startsWith("AM:") || sid.startsWith("REVEL:")) return "in-silico missense predictors";
+  if (sid.startsWith("GENEPRIOR:")) return "gene prior";
+  if (sid.startsWith("GNOMAD:")) return "population frequency (gnomAD)";
+  if (sid.startsWith("PMID:")) return "literature (PubMed)";
+  if (sid.startsWith("ANALYSIS:")) return "agent analyses (derived)";
+  return "other (" + (e.source || "unknown") + ")";
+}
+function shortSource(e){
+  const sid = e.source_id || "";
+  if (sid.startsWith("CLINVAR:")) return ["ClinVar", "frozen 2024-01 record"];
+  if (sid.startsWith("AM:")) return ["AlphaMissense", "missense predictor"];
+  if (sid.startsWith("REVEL:")) return ["REVEL", "ensemble meta-predictor"];
+  if (sid.startsWith("GENEPRIOR:")) return ["Gene prior", "frozen train labels"];
+  if (sid.startsWith("GNOMAD:")) return ["gnomAD", e.live ? "live lookup" : "recorded lookup"];
+  if (sid.startsWith("PMID:")) return ["PubMed", "literature"];
+  if (sid.startsWith("ANALYSIS:")) return ["Analysis · " + (e.source || "").replace(/^Agent analysis:\s*/, "").replace(/_/g, " "), "agent-computed in sandbox"];
+  return [e.source || "Evidence", ""];
+}
+function heatStripHTML(evidence, review){
+  if (!evidence.length) return "";
+  const fams = evidence.map(familyOf);
+  const order = [];
+  (review.families || []).forEach(f => { if (fams.includes(f) && !order.includes(f)) order.push(f); });
+  fams.forEach(f => { if (!order.includes(f)) order.push(f); });
+  const counts = {}; fams.forEach(f => { counts[f] = (counts[f] || 0) + 1; });
+  const nFam = order.length;
+  const dirFill = {pathogenic: "linear-gradient(90deg,#ef4444,#b91c1c)", benign: "linear-gradient(90deg,#22c55e,#0b7a37)", neutral: "linear-gradient(90deg,#94a3b8,#64748b)"};
+  const idxs = evidence.map((e, i) => i).sort((a, b) => (order.indexOf(fams[a]) - order.indexOf(fams[b])) || (a - b));
+  const rows = idxs.map((i, r) => {
+    const e = evidence[i], f = fams[i], ss = shortSource(e);
+    const w = (100 / nFam / counts[f]).toFixed(1);
+    const d = (e.direction || "neutral").toLowerCase();
+    return `<div class="strip-row"><span class="strip-idx">${String(r + 1).padStart(2, "0")}</span>` +
+      `<span class="strip-src">${esc(ss[0])}${ss[1] ? `<small>${esc(ss[1])}</small>` : ""}</span>` +
+      `<span class="strip-track"><span class="strip-fill" data-w="${w}" style="background:${dirFill[d] || dirFill.neutral}"></span></span>` +
+      `<span class="fam">${esc(f)}</span>${dirChip(e.direction)}</div>`;
+  }).join("");
+  return `<div class="strip reveal">${rows}` +
+    `<p class="panel-cap">How to read this strip: the bar space is divided <b>equally among the ${nFam} evidence families</b> present, and items in the same family share that family's slice — so correlated predictors cannot stack weight. Colour is each item's own direction; length is family weight, not strength.</p></div>`;
+}
+
+/* ---------------- gene and variant context panel ---------------- */
+/* GRCh38 chromosome lengths (Mb) and schematic centromere ranges (Mb):
+   standard reference constants. Banding and centromere are stylised;
+   the marker coordinate is the variant's exact recorded position. */
+const CHROM_INFO = {
+  "1": [248.96, 121.5, 124.5], "2": [242.19, 90.5, 93.5], "3": [198.30, 90.5, 93.5], "4": [190.21, 48.2, 51.2],
+  "5": [181.54, 46.1, 49.1], "6": [170.81, 58.5, 61.5], "7": [159.35, 58.0, 61.0], "8": [145.14, 43.1, 46.1],
+  "9": [138.39, 42.2, 45.5], "10": [133.80, 38.0, 41.0], "11": [135.09, 52.9, 56.0], "12": [133.28, 34.9, 37.9],
+  "13": [114.36, 16.0, 19.0], "14": [107.04, 16.0, 19.1], "15": [101.99, 17.0, 20.0], "16": [90.34, 35.3, 38.3],
+  "17": [83.26, 22.2, 25.2], "18": [80.37, 15.4, 18.4], "19": [58.62, 24.4, 27.4], "20": [64.44, 25.7, 28.7],
+  "21": [46.71, 10.9, 13.9], "22": [50.82, 13.5, 16.5], "X": [156.04, 58.6, 61.6], "Y": [57.23, 10.4, 13.4]};
+function ideogramSVG(rec){
+  const info = CHROM_INFO[String(rec.chrom)];
+  if (!info || rec.pos == null) return "";
+  const lenMb = info[0], c0 = info[1], c1 = info[2], len = lenMb * 1e6;
+  const W = 720, x0 = 16, x1 = 704, y = 40, h = 20;
+  const X = p => x0 + (p / len) * (x1 - x0);
+  const mx = X(rec.pos);
+  let bands = "";
+  const NB = 16;
+  for (let i = 0; i < NB; i++){
+    if (i % 2) bands += `<rect x="${(x0 + (x1 - x0) * i / NB).toFixed(1)}" y="${y}" width="${((x1 - x0) / NB).toFixed(1)}" height="${h}" fill="rgba(10,37,64,.06)"/>`;
+  }
+  const cx0 = X(c0 * 1e6), cx1 = X(c1 * 1e6);
+  const label = `chr${rec.chrom}:${Number(rec.pos).toLocaleString("en-US")}`;
+  const lx = Math.min(Math.max(mx, 88), W - 88);
+  return `<svg viewBox="0 0 ${W} 104" role="img" aria-label="Chromosome ${esc(rec.chrom)} ideogram with the variant position marked" style="width:100%;height:auto;display:block;margin-top:14px">` +
+    `<defs><clipPath id="ideoClip"><rect x="${x0}" y="${y}" width="${x1 - x0}" height="${h}" rx="10"/></clipPath></defs>` +
+    `<text x="${lx}" y="16" text-anchor="middle" font-family="Roboto Mono" font-size="12.5" font-weight="500" fill="#1d1d1f">${esc(label)}</text>` +
+    `<rect x="${x0}" y="${y}" width="${x1 - x0}" height="${h}" rx="10" fill="#e8eef5"/>` +
+    `<g clip-path="url(#ideoClip)">${bands}<rect x="${cx0.toFixed(1)}" y="${y}" width="${(cx1 - cx0).toFixed(1)}" height="${h}" fill="rgba(10,37,64,.20)"/></g>` +
+    `<path d="M ${cx0.toFixed(1)} ${y} L ${cx1.toFixed(1)} ${y + h} M ${cx0.toFixed(1)} ${y + h} L ${cx1.toFixed(1)} ${y}" stroke="rgba(10,37,64,.35)" stroke-width="1.4"/>` +
+    `<rect x="${x0}" y="${y}" width="${x1 - x0}" height="${h}" rx="10" fill="none" stroke="#b6c2cf"/>` +
+    `<line x1="${mx.toFixed(1)}" y1="24" x2="${mx.toFixed(1)}" y2="${y + h + 8}" stroke="#b91c1c" stroke-width="2.2"/>` +
+    `<path d="M ${(mx - 6).toFixed(1)} 24 L ${(mx + 6).toFixed(1)} 24 L ${mx.toFixed(1)} 31 Z" fill="#b91c1c"/>` +
+    `<circle cx="${mx.toFixed(1)}" cy="${y + h / 2}" r="5" fill="#b91c1c" stroke="#fff" stroke-width="2"/>` +
+    `<text x="${x0}" y="88" font-size="10.5" fill="#80868b">0</text>` +
+    `<text x="${x1}" y="88" text-anchor="end" font-size="10.5" fill="#80868b">chr${esc(rec.chrom)} · ${lenMb} Mb</text>` +
+    `<text x="${lx}" y="88" text-anchor="middle" font-size="10.5" font-weight="600" fill="#b91c1c">${esc(rec.gene)}</text></svg>`;
+}
+function contextPanelHTML(rec){
+  const name = rec.name || "";
+  const cm = name.match(/:(c\.[^\s]+)/), pm = name.match(/\((p\.[^)]+)\)/);
+  const cons = rec.vep_consequence ? String(rec.vep_consequence).replace(/_/g, " ") : null;
+  const kv = [
+    ["HGVS coding", cm ? cm[1] : "—", 1],
+    ["HGVS protein", pm ? pm[1] : "—", 1],
+    ["Consequence (VEP)", cons ? cons.charAt(0).toUpperCase() + cons.slice(1) : "not recorded", 0],
+    ["Variant type", rec.variant_type || "—", 0],
+    ["Genomic (GRCh38)", `chr${rec.chrom}:${Number(rec.pos).toLocaleString("en-US")}`, 1],
+    ["ClinVar at the 2024-01 freeze", rec.sig_then || "—", 0]
+  ].map(rw => `<dt>${esc(rw[0])}</dt><dd${rw[2] ? ' class="mono"' : ""}>${esc(rw[1])}</dd>`).join("");
+  const multi = String(rec.ref || "").length > 1;
+  return `<div class="card gene-panel reveal">` + secHead("01", "CONTEXT", "Gene and variant context", "") +
+    `<div class="gene-grid"><div>` +
+    `<div class="gene-symbol">${esc(rec.gene)}</div><div class="gene-name">${esc(name)}</div>` +
+    `<dl class="kv">${kv}</dl></div>` +
+    `<div><div class="allele-flow"><div class="allele-tile allele-ref"><div class="a-lab">Reference · GRCh38</div><div class="a-val">${esc(rec.ref)}</div></div>` +
+    `<div class="allele-arrow">→</div>` +
+    `<div class="allele-tile allele-alt"><div class="a-lab">Alternate</div><div class="a-val">${esc(rec.alt)}</div></div></div>` +
+    `<p class="panel-cap">The change itself: the reference base${multi ? "s" : ""} <b>${esc(rec.ref)}</b> at this position ${multi ? "are" : "is"} replaced by <b>${esc(rec.alt)}</b> in the alternate allele. Everything in this panel is read from the variant's own record — no external annotation is fetched.</p></div></div>` +
+    ideogramSVG(rec) +
+    `<p class="ideo-cap">Stylised chromosome ${esc(rec.chrom)} ideogram — banding and the centromere pinch are schematic; the red marker sits at the exact GRCh38 coordinate from the record.</p></div>`;
 }
 
 /* ---------------- distribution histograms ---------------- */
@@ -649,6 +881,7 @@ function renderReport(state){
   const review = state.review || {}, critiques = review.critiques || [], families = review.families || [];
   const analyses = state.analyses || [], evidence = state.evidence || [];
   const designs = (state.design || {}).designs || [], dists = state.distributions || {};
+  const R = h => h ? `<div class="reveal">${h}</div>` : "";
   const passed = !!gate.passed, lean = j.lean || "", prob = j.model_prob_pathogenic;
   const genomic = `${rec.chrom}:${rec.pos} ${rec.ref}>${rec.alt}`;
   const eyebrow = `<div class="eyebrow"><span class="meta-chip">${esc(rec.gene)}</span><span class="meta-chip">${esc(genomic)}</span><span class="meta-chip">ClinVar allele ${esc(rec.allele_id)}</span><span class="meta-chip">${esc(rec.name)}</span></div>`;
@@ -692,19 +925,33 @@ function renderReport(state){
     <div class="tile"><div class="tile-num">${critiques.length}</div><div class="tile-label">reviewer findings — <span class="c-red"><b>${nMat} material</b></span> · <span class="c-amb"><b>${nNot} notable</b></span> · ${nMin} minor</div></div>
   </div>`;
 
-  /* heatmap */
-  const heat = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Predictor heatmap</h3>` +
-    `<p class="section-sub">Every signal for this variant on one 0-to-1 scale — green is the benign end, amber the middle, deep red the pathogenic end. Each cell is a real measured or recorded value.</p>` +
+  /* gene context panel + share actions */
+  const context = contextPanelHTML(rec);
+  const actions = `<div class="report-actions reveal"><button class="btn-mini" id="btn-copy" type="button">Copy summary</button><button class="btn-mini" id="btn-dl" type="button">Download dossier (.md)</button><span class="actions-note">Share this result — the summary carries the variant, the verdict, the probability and a link back to this app.</span></div>`;
+
+  /* heatmap v2 */
+  const spRes = findAnalysis(state, "score_percentiles").results || {};
+  const pcRes = findAnalysis(state, "population_context").results || {};
+  const agrResH = findAnalysis(state, "predictor_agreement").results || {};
+  const afPct = pcRes.af_percentile_in_local_test_set != null ? pcRes.af_percentile_in_local_test_set
+    : (dists.af && dists.af.percentile != null ? dists.af.percentile : null);
+  const afN = pcRes.reference_n || (dists.af && dists.af.n) || null;
+  const heat = `<div class="reveal">` + secHead("02", "SIGNALS", "Predictor heatmap", "Every real signal for this variant on one colour scale — deep blue is the benign end, through teal, green, yellow and orange to deep red at the pathogenic end. Percentile cells rank this variant inside the real test-set distributions; the allele-frequency cell is plotted inverted, because frequent variants lean benign.") +
     `<div class="heatmap">` +
-    heatCell("AlphaMissense", rec.am_score, rec.am_class ? "class: " + String(rec.am_class).replace(/_/g, " ") : "missense effect predictor", "no AlphaMissense score recorded for this variant", 0) +
-    heatCell("REVEL", rec.revel_score, "ensemble meta-predictor score", "no REVEL score recorded for this variant", 90) +
-    heatCell("Gene prior", state.gene_prior, "prior from the frozen train set", "this variant was not scored by the recorded model run", 180) +
-    heatCell("GBM+R model", prob, "isotonic-calibrated P(pathogenic)", "no recorded calibrated probability for this variant", 270) +
-    `</div>`;
+    heatCell2("AlphaMissense", rec.am_score != null ? Number(rec.am_score).toFixed(3) : null, rec.am_score, rec.am_class ? "class: " + String(rec.am_class).replace(/_/g, " ") : "missense effect predictor · not recorded for this variant", 0) +
+    heatCell2("REVEL", rec.revel_score != null ? Number(rec.revel_score).toFixed(3) : null, rec.revel_score, rec.revel_score != null ? "ensemble meta-predictor score" : "not recorded for this variant", 60) +
+    heatCell2("Gene prior", state.gene_prior != null ? Number(state.gene_prior).toFixed(3) : null, state.gene_prior, state.gene_prior != null ? "prior from the frozen train set" : "this variant was not scored by the recorded model run", 120) +
+    heatCell2("GBM+R model", prob != null ? Number(prob).toFixed(3) : null, prob, prob != null ? "isotonic-calibrated P(pathogenic)" : "no recorded calibrated probability for this variant", 180) +
+    heatCell2("AM percentile rank", spRes.am_score_percentile_in_local_test_set != null ? spRes.am_score_percentile_in_local_test_set.toFixed(1) : null, spRes.am_score_percentile_in_local_test_set != null ? spRes.am_score_percentile_in_local_test_set / 100 : null, (spRes.am_score_percentile_in_local_test_set != null ? "percentile of " + (spRes.am_score_reference_n || 10373).toLocaleString() + " test-set AlphaMissense scores" : "score-percentile analysis did not run for this variant"), 240) +
+    heatCell2("REVEL percentile rank", spRes.revel_score_percentile_in_local_test_set != null ? spRes.revel_score_percentile_in_local_test_set.toFixed(1) : null, spRes.revel_score_percentile_in_local_test_set != null ? spRes.revel_score_percentile_in_local_test_set / 100 : null, (spRes.revel_score_percentile_in_local_test_set != null ? "percentile of " + (spRes.revel_score_reference_n || 11023).toLocaleString() + " test-set REVEL scores" : "score-percentile analysis did not run for this variant"), 300) +
+    heatCell2("Allele-freq percentile", afPct != null ? afPct.toFixed(1) : null, afPct != null ? 1 - afPct / 100 : null, (afPct != null ? "percentile of " + (afN ? afN.toLocaleString() : "recorded") + " recorded gnomAD frequencies — inverted: frequent leans benign" : "no gnomAD frequency recorded for this variant"), 360) +
+    heatCell2("Predictor agreement", agrResH.pairwise_agreement_fraction != null ? Math.round(agrResH.pairwise_agreement_fraction * 100) + "%" : null, agrResH.pairwise_agreement_fraction, (agrResH.pairwise_agreement_fraction != null ? (agrResH.consensus ? "consensus: " + agrResH.consensus + " · " : "") + "violet scale = consensus strength, not direction" : "too few predictors scored this variant"), 420, "agree") +
+    `</div>` +
+    `<div class="heat-legend"><div class="heat-scale"></div><div class="heat-scale-labels"><span>0 · benign end</span><span>0.5 · middle</span><span>1 · pathogenic end</span></div><p class="heat-note">Grey dashed cells mean the signal was never recorded for this variant — shown as absent, never estimated. The agreement cell uses its own violet scale because agreement measures consensus, not direction.</p></div></div>` +
+    heatStripHTML(evidence, review);
 
   /* distribution graphs */
-  const distGrid = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Where this variant sits in the real data</h3>` +
-    `<p class="section-sub">Histograms computed from the bundled temporal test set itself — not illustrations. The red marker is this variant's own value.</p>` +
+  const distGrid = secHead("03", "DISTRIBUTIONS", "Where this variant sits in the real data", "Histograms computed from the bundled temporal test set itself, not illustrations. The red marker is this variant's own value.") +
     `<div class="viz-grid">` +
     histCard("AlphaMissense scores — full test set", "Distribution of AlphaMissense pathogenicity scores across the temporal test set.", dists.am, "am", rec.am_score != null ? Number(rec.am_score).toFixed(3) : "") +
     histCard("REVEL scores — full test set", "Distribution of REVEL ensemble scores across the temporal test set.", dists.revel, "revel", rec.revel_score != null ? Number(rec.revel_score).toFixed(3) : "") +
@@ -734,7 +981,7 @@ function renderReport(state){
   } else {
     sevHTML = `<p style="margin:0;font-size:14px;color:var(--grey)">The reviewer recorded no findings for this run.</p>`;
   }
-  const vizRow2 = `<div class="viz-grid" style="margin-top:14px">
+  const vizRow2 = secHead("04", "CONSENSUS", "Do the predictors agree — and how hard did the reviewer push?", "") + `<div class="viz-grid">
     <div class="card viz-card"><h3>Predictor agreement</h3><p class="vc-sub">Do the independent predictors point the same way?</p>${agrHTML}</div>
     <div class="card viz-card"><h3>Reviewer severity overview</h3><p class="vc-sub">The second opinion, at a glance — ${critiques.length} findings in total.</p>${sevHTML}</div>
   </div>`;
@@ -744,8 +991,7 @@ function renderReport(state){
   if (evidence.length){
     const rows = evidence.map((e, i) =>
       `<tr><td>${i + 1}</td><td class="ev-src">${esc(e.source)}${e.live ? ' <span class="chip chip-ok">live</span>' : ""}</td><td class="ev-rec">${esc(e.source_id)}</td><td>${esc(e.detail)}</td><td>${dirChip(e.direction)}</td></tr>`).join("");
-    evidenceHTML = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Evidence — every claim cited</h3>` +
-      `<p class="section-sub">Retrieved records and the agent's own computed analyses. Direction is what each item supports, not the verdict.</p>` +
+    evidenceHTML = secHead("05", "EVIDENCE", "Evidence — every claim cited", "Retrieved records and the agent's own computed analyses. Direction is what each item supports, not the verdict.") +
       `<div class="table-wrap"><table class="ev"><thead><tr><th>#</th><th>Source</th><th>Record</th><th>Detail</th><th>Direction</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
@@ -755,16 +1001,14 @@ function renderReport(state){
     const cards = analyses.map(a =>
       `<div class="acard"><div class="acard-head"><span class="acard-title">${esc(ANALYSIS_TITLES[a.name] || a.name)}</span>${statusChip(a.status)}</div>` +
       `<p>${esc(a.summary || a.error || "")}</p>${analysisExtras(a)}</div>`).join("");
-    analysesHTML = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Analyses the agent ran itself</h3>` +
-      `<p class="section-sub">Small programs the agent generated and executed in a no-network sandbox (30 s timeout). Only analyses with real computed content count as evidence; failures are shown, never hidden.</p>` +
+    analysesHTML = secHead("06", "ANALYSES", "Analyses the agent ran itself", "Small programs the agent generated and executed in a no-network sandbox (30 s timeout). Only analyses with real computed content count as evidence; failures are shown, never hidden.") +
       `<div class="cards3">${cards}</div>`;
   }
 
   /* reviewer */
   let reviewerHTML = "";
   if (critiques.length || families.length){
-    let rp = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Second opinion — reviewer critique</h3>` +
-      `<p class="section-sub">An adversarial stage checked independence, direction conflicts, missing evidence classes, calibration caveats, and whether the verdict strength matches its independent support.</p>`;
+    let rp = secHead("07", "REVIEW", "Second opinion — reviewer critique", "An adversarial stage checked independence, direction conflicts, missing evidence classes, calibration caveats, and whether the verdict strength matches its independent support.");
     if (families.length) rp += `<div class="families">${families.map(f => `<span class="fam">${esc(f)}</span>`).join("")}</div>`;
     if (review.downgraded) rp += `<div class="callout callout-amber"><strong>Downgrade applied:</strong> ${esc(review.strength_before)} → ${esc(review.strength_after)}${review.downgrade_reason ? " — " + esc(review.downgrade_reason) : ""}</div>`;
     if (review.decline_upheld) rp += `<div class="callout callout-green"><strong>Decline upheld.</strong> The reviewer checked the refusal against the evidence state and found it consistent.</div>`;
@@ -783,26 +1027,100 @@ function renderReport(state){
       `<div class="sup sup-path"><h4>Supports pathogenic</h4>${esc(d.supports_pathogenic)}</div>` +
       `<div class="sup sup-ben"><h4>Supports benign</h4>${esc(d.supports_benign)}</div>` +
       `</div></div></div>`).join("");
-    designsHTML = `<h3 class="section-title" style="font-size:20px;margin-top:34px">Validation experiment designs</h3>` +
-      `<p class="section-sub">The experiments that would most efficiently settle this variant, in priority order — with the deciding results stated in advance.</p>` + cards;
+    designsHTML = secHead("08", "EXPERIMENTS", "Validation experiment designs", "The experiments that would most efficiently settle this variant, in priority order, with the deciding results stated in advance.") + cards;
   }
 
   /* narrative + dossier + provenance */
-  const narrativeHTML = state.narrative ? `<h3 class="section-title" style="font-size:20px;margin-top:34px">Narrative</h3><div class="narrative">${esc(state.narrative)}</div>` : "";
+  const narrativeHTML = state.narrative ? secHead("09", "NARRATIVE", "Narrative", "") + `<div class="narrative">${esc(state.narrative)}</div>` : "";
   const dossierHTML = state.dossier_markdown ? `<details class="dossier"><summary>Full dossier (Markdown, exactly as the pipeline writes it)</summary><pre>${esc(state.dossier_markdown)}</pre></details>` : "";
   const notes = (state.notes || []).map(esc).join(" ");
   const prov = `<p class="prov">Plan mode: ${esc(state.plan_mode || "template")} · LLM mode: offline · Gatherers: ClinVar (local records), gnomAD (recorded lookup), PubMed (not queried — offline) · Pipeline events: ${(state.events || []).length}.${notes ? " " + notes : ""}</p>`;
 
-  return `<div class="report">${hero}${tiles}${heat}${distGrid}${vizRow2}${evidenceHTML}${analysesHTML}${reviewerHTML}${designsHTML}${narrativeHTML}${dossierHTML}${prov}</div>`;
+  return `<div class="report">${hero}${actions}${context}${tiles}${heat}${R(distGrid)}${R(vizRow2)}${R(evidenceHTML)}${R(analysesHTML)}${R(reviewerHTML)}${R(designsHTML)}${R(narrativeHTML)}${dossierHTML}${prov}</div>`;
+}
+
+/* ---------------- v3: reveal, sticky mini bar, share actions ---------------- */
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add("in"); revealIO.unobserve(en.target); } });
+}, {threshold: .06});
+$$(".reveal").forEach(el => revealIO.observe(el));
+
+function verdictShort(state){
+  const gate = state.gate || {}, j = state.judgment || {};
+  if (!gate.passed) return ["Declined — insufficient evidence", "chip-not"];
+  const st = (j.strength || "").trim();
+  return [((st ? st.charAt(0).toUpperCase() + st.slice(1) + " " : "") + (j.lean || "") + "-leaning"), j.lean === "pathogenic" ? "chip-path" : "chip-ben"];
+}
+function setMini(state){
+  const rec = state.record || {}, j = state.judgment || {}, gate = state.gate || {};
+  const vs = verdictShort(state);
+  $("#mini-name").textContent = (rec.gene || "") + " · " + (rec.name || state.query || "");
+  const chip = $("#mini-chip"); chip.textContent = vs[0]; chip.className = "chip " + vs[1];
+  $("#mini-prob").textContent = j.model_prob_pathogenic != null ? "P(pathogenic) " + Number(j.model_prob_pathogenic).toFixed(3)
+    : (!gate.passed ? "evidence " + (gate.evidence_count || 0) + " of " + (gate.min_evidence || 3) : "");
+  window.__miniReady = true;
+}
+function hideMini(){ window.__miniReady = false; const b = $("#mini-bar"); if (b) b.classList.remove("show"); }
+window.addEventListener("scroll", () => {
+  const b = $("#mini-bar"); if (!b) return;
+  const res = $("#results");
+  const past = window.__miniReady && res && window.scrollY > res.offsetTop + 320;
+  b.classList.toggle("show", !!past);
+}, {passive: true});
+(function(){ const mc = $("#mini-close"); if (mc) mc.addEventListener("click", hideMini); })();
+
+function summaryText(state){
+  const rec = state.record || {}, j = state.judgment || {}, gate = state.gate || {}, review = state.review || {};
+  const critiques = review.critiques || [];
+  const nMat = critiques.filter(c => c.severity === "material").length;
+  const lines = [
+    "Variant Research Agent — research summary",
+    "Variant: " + (rec.gene || "") + " " + (rec.name || state.query || ""),
+    "Genomic (GRCh38): chr" + rec.chrom + ":" + Number(rec.pos).toLocaleString("en-US") + " " + rec.ref + ">" + rec.alt,
+    "Verdict: " + verdictShort(state)[0] + (review.downgraded ? " (reviewer downgraded " + review.strength_before + " → " + review.strength_after + ")" : "")
+  ];
+  if (j.model_prob_pathogenic != null) lines.push("Calibrated P(pathogenic): " + Number(j.model_prob_pathogenic).toFixed(3));
+  lines.push("Evidence: " + (gate.evidence_count != null ? gate.evidence_count : (state.evidence || []).length) + " items · " + (review.families || []).length + " independent families · reviewer findings: " + critiques.length + " (" + nMat + " material)");
+  lines.push("App: https://evidra-variant-research-agent.hf.space");
+  lines.push("Research only — not for clinical use.");
+  return lines.join("\n");
+}
+function wireReportActions(state){
+  const copyBtn = $("#btn-copy"), dlBtn = $("#btn-dl");
+  if (copyBtn) copyBtn.addEventListener("click", async () => {
+    const txt = summaryText(state);
+    let ok = false;
+    try { await navigator.clipboard.writeText(txt); ok = true; }
+    catch (e) {
+      const ta = document.createElement("textarea");
+      ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+      ta.remove();
+    }
+    copyBtn.textContent = ok ? "Copied" : "Copy failed";
+    setTimeout(() => { copyBtn.textContent = "Copy summary"; }, 1800);
+  });
+  if (dlBtn) dlBtn.addEventListener("click", () => {
+    const rec = state.record || {};
+    const blob = new Blob([state.dossier_markdown || ""], {type: "text/markdown"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "variant-dossier_" + (rec.gene || "variant") + "_" + (rec.allele_id || "x") + ".md";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  });
 }
 
 /* ---------------- post-render animation ---------------- */
 function animateReport(state){
+  $$(".reveal").forEach(el => revealIO.observe(el));
+  setTimeout(() => $$(".reveal").forEach(el => el.classList.add("in")), 1800);
   requestAnimationFrame(() => requestAnimationFrame(() => {
     $$(".gauge-arc").forEach(el => { el.style.strokeDashoffset = el.dataset.off; });
     $$(".gauge-dot").forEach(el => { el.style.opacity = "1"; });
     $$(".donut-arc").forEach(el => { el.style.strokeDashoffset = el.dataset.off; });
-    $$(".bar-fill, .gatebar-fill, .sevbar div").forEach(el => { if (el.dataset.w != null) el.style.width = el.dataset.w + "%"; });
+    $$(".bar-fill, .gatebar-fill, .sevbar div, .strip-fill").forEach(el => { if (el.dataset.w != null) el.style.width = el.dataset.w + "%"; });
     /* histogram bars grow */
     const rects = $$(".hist-bar");
     if (rects.length){
