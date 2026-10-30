@@ -115,6 +115,100 @@ def distributions() -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Evidence Universe + Scatter Landscape payloads (v6).
+# Aggregations only, computed once from the bundled tables and cached:
+# the universe groups the real test-set rows by gene; the scatter is a
+# decimation of the recorded GBM+R run's own rows (that table carries
+# am_score, revel_score and the calibrated probability per variant).
+# ---------------------------------------------------------------------------
+
+_UNIVERSE: dict = {}
+_SCATTER: dict = {}
+
+
+def _f(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def universe() -> dict:
+    if _UNIVERSE:
+        return _UNIVERSE
+    rows = _data.test_rows()
+    scored = _data.gbm_predictions()
+    counts: dict[str, int] = {}
+    by_gene: dict[str, list[int]] = {}
+    for r in rows:
+        gene = r.get("gene")
+        try:
+            aid = int(r.get("allele_id"))
+        except (TypeError, ValueError):
+            continue
+        if not gene:
+            continue
+        counts[gene] = counts.get(gene, 0) + 1
+        by_gene.setdefault(gene, []).append(aid)
+    top = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))[:40]
+    genes = []
+    for gene, cnt in top:
+        aids = sorted(by_gene[gene])
+        n = len(aids)
+        k = min(12, n)
+        if k == 1:
+            idx = [0]
+        else:
+            idx = sorted({round(i * (n - 1) / (k - 1)) for i in range(k)})
+        nodes = [{"allele_id": aids[i], "scored": aids[i] in scored}
+                 for i in idx]
+        genes.append({
+            "gene": gene,
+            "count": cnt,
+            "scored_count": sum(1 for a in aids if a in scored),
+            "nodes": nodes,
+        })
+    payload = {
+        "total_variants": len(rows),
+        "total_genes": len(counts),
+        "scored_total": len(scored),
+        "top_genes_sum": sum(c for _, c in top),
+        "nodes_shown": len(genes) + sum(len(g["nodes"]) for g in genes),
+        "genes": genes,
+    }
+    _UNIVERSE.update(payload)
+    return payload
+
+
+def scatter() -> dict:
+    if _SCATTER:
+        return _SCATTER
+    path = _data.home / "data/processed_v2/test_predictions_trees.csv"
+    base = []
+    if path.exists():
+        import csv as _csv
+        with open(path, newline="") as fh:
+            for raw in _csv.DictReader(fh):
+                am = _f(raw.get("am_score"))
+                rev = _f(raw.get("revel_score"))
+                prob = _f(raw.get("prob_gbm_isotonic"))
+                if am is None or rev is None or prob is None:
+                    continue
+                base.append((int(raw["allele_id"]), am, rev, prob))
+    base.sort()
+    pts = base[::5]
+    payload = {
+        "base_n": len(base),
+        "plotted_n": len(pts),
+        "rule": "every 5th variant in allele-id order",
+        "points": [[round(am, 4), round(rev, 4), round(prob, 4)]
+                   for _, am, rev, prob in pts],
+    }
+    _SCATTER.update(payload)
+    return payload
+
+
+# ---------------------------------------------------------------------------
 # API
 # ---------------------------------------------------------------------------
 
@@ -174,6 +268,16 @@ def _research_sync(variant: str) -> dict:
 @app.get("/api/health")
 def health() -> dict:
     return {"status": "ok"}
+
+
+@app.get("/api/universe")
+def universe_route() -> dict:
+    return universe()
+
+
+@app.get("/api/scatter")
+def scatter_route() -> dict:
+    return scatter()
 
 
 @app.post("/api/research")
