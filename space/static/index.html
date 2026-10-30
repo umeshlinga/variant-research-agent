@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Variant Research Agent — by Omevra</title>
+<title>Omevra — Variant Research Agent</title>
 <meta name="description" content="An autonomous research agent for human genetic variants: auditable dossier out, or an honest decline. Not for clinical use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#0b7a37; --green-dark:#0a5c2a; --green-bright:#12a594; --green-tint:#e6f4ea;
@@ -18,6 +18,7 @@
   --border:#dadce0; --card-border:#e0e3e7; --surface:#f8f9fa;
   --shadow:0 4px 24px rgba(32,33,36,.08);
   --shadow-lg:0 12px 40px rgba(32,33,36,.13);
+  --violet:#7c3aed; --cyan:#06b6d4; --orange:#f97316;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -346,6 +347,223 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
   .search-bar{flex-direction:column;border-radius:22px}
   .btn{width:100%}
 }
+
+/* ================= v4: sharper, brighter UX layer ================= */
+:root{
+  --violet:#7c3aed; --violet-2:#8b5cf6; --cyan:#06b6d4; --cyan-2:#22d3ee; --orange:#f97316; --pink:#ec4899;
+  --ink:#0b1220; --border:#d3dae2; --card-border:#dde3ea;
+  --shadow:0 2px 6px rgba(11,18,32,.05),0 14px 34px rgba(11,18,32,.08);
+  --shadow-lg:0 4px 10px rgba(11,18,32,.06),0 24px 54px rgba(11,18,32,.13);
+}
+body{background:linear-gradient(180deg,#fbfdff 0,#ffffff 360px)}
+.wrap{max-width:1240px;padding:0 24px}
+::selection{background:#a7f3d0}
+:focus-visible{outline:2.5px solid var(--cyan);outline-offset:2px}
+/* topbar: gradient hairline + richer logo */
+.topbar{background:rgba(255,255,255,.92);border-bottom:none;box-shadow:0 1px 0 rgba(11,18,32,.05)}
+.topbar::after{content:"";display:block;height:2px;background:linear-gradient(90deg,#0b7a37,#12a594,#06b6d4,#7c3aed,#f97316)}
+.logo{background:linear-gradient(135deg,#0b7a37,#0ea47a 45%,#06b6d4 82%,#7c3aed);border-radius:11px;box-shadow:0 6px 16px rgba(11,122,55,.35)}
+.product{letter-spacing:-.02em}
+/* hero */
+.hero{padding:64px 0 34px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;color:#0e7490;background:rgba(255,255,255,.78);border:1px solid #a5e8f7;padding:6px 13px;border-radius:999px;margin-bottom:18px;box-shadow:0 4px 14px rgba(6,182,212,.16)}
+.hero h1{font-size:62px;line-height:1.03;letter-spacing:-.032em}
+.hero h1 .accent{background:linear-gradient(92deg,#0b7a37 5%,#12a594 32%,#06b6d4 55%,#7c3aed 84%,#0b7a37 106%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:accentShift 9s ease infinite}
+@keyframes accentShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero p.lede{font-size:17.5px}
+.hero .mesh{background:
+  radial-gradient(560px 340px at 10% 6%,rgba(18,165,148,.20),transparent 65%),
+  radial-gradient(640px 380px at 88% 0%,rgba(6,182,212,.17),transparent 65%),
+  radial-gradient(520px 330px at 62% 112%,rgba(124,58,237,.13),transparent 65%),
+  radial-gradient(420px 260px at 28% 118%,rgba(249,115,22,.10),transparent 65%),
+  linear-gradient(rgba(26,115,232,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(26,115,232,.05) 1px,transparent 1px);
+  background-size:auto,auto,auto,auto,36px 36px,36px 36px}
+.blob.b1{background:#6ee7b7}
+.blob.b2{background:#7dd3fc}
+.helix-card{border:1.5px solid transparent;background:linear-gradient(rgba(255,255,255,.86),rgba(255,255,255,.86)) padding-box,linear-gradient(135deg,rgba(11,122,55,.5),rgba(6,182,212,.45),rgba(124,58,237,.4)) border-box;border-radius:18px;box-shadow:var(--shadow-lg)}
+/* search + buttons */
+.search-bar{border:2px solid #cfd8e0;box-shadow:0 6px 22px rgba(11,18,32,.08)}
+.search-bar:focus-within{border-color:#0ea47a;box-shadow:0 12px 34px rgba(11,122,55,.18),0 0 0 5px rgba(18,165,148,.13)}
+.btn-primary{background:linear-gradient(120deg,#0b7a37,#12a594,#06b6d4,#7c3aed,#0b7a37);background-size:240% 240%}
+.chip-btn{border:1.5px solid var(--border)}
+.chip-btn:hover{border-color:var(--violet);color:#5b21b6;background:#f5f3ff;box-shadow:0 6px 16px rgba(124,58,237,.16)}
+/* stats: colour-coded */
+.stat{border-radius:14px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;z-index:1}
+.stat:nth-child(1)::before{background:linear-gradient(90deg,#0b7a37,#22c55e)}
+.stat:nth-child(2)::before{background:linear-gradient(90deg,#0d9488,#2dd4bf)}
+.stat:nth-child(3)::before{background:linear-gradient(90deg,#0891b2,#22d3ee)}
+.stat:nth-child(4)::before{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.stat:nth-child(5)::before{background:linear-gradient(90deg,#ea580c,#fb923c)}
+.stat:nth-child(1) .stat-num{color:#0b7a37}
+.stat:nth-child(2) .stat-num{color:#0d9488}
+.stat:nth-child(3) .stat-num{color:#0891b2}
+.stat:nth-child(4) .stat-num{color:#7c3aed}
+.stat:nth-child(5) .stat-num{color:#ea580c}
+.stat-num{font-size:32px;letter-spacing:-.02em}
+/* glass panels: richer gradient borders */
+.viz-card,.tile,.stat{background:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)) padding-box,linear-gradient(135deg,rgba(11,122,55,.45),rgba(6,182,212,.38),rgba(124,58,237,.34)) border-box}
+/* sections: colour-coded labels with accent rule */
+.section-title{font-size:27px;letter-spacing:-.022em}
+.sec-head2{border-left:3px solid var(--border);padding-left:13px}
+.sacc-01{border-left-color:#06b6d4}.sacc-01 .sec-label{color:#0891b2}
+.sacc-02{border-left-color:#7c3aed}.sacc-02 .sec-label{color:#7c3aed}
+.sacc-03{border-left-color:#0284c7}.sacc-03 .sec-label{color:#0284c7}
+.sacc-04{border-left-color:#0d9488}.sacc-04 .sec-label{color:#0d9488}
+.sacc-05{border-left-color:#16a34a}.sacc-05 .sec-label{color:#0b7a37}
+.sacc-06{border-left-color:#f97316}.sacc-06 .sec-label{color:#ea580c}
+.sacc-07{border-left-color:#e11d48}.sacc-07 .sec-label{color:#e11d48}
+.sacc-08{border-left-color:#4f46e5}.sacc-08 .sec-label{color:#4f46e5}
+.sacc-09{border-left-color:#64748b}.sacc-09 .sec-label{color:#64748b}
+#benchmark .sec-label{color:#0b7a37}
+/* sharper cards */
+.card,.viz-card,.tile,.acard,.design,.strip,.bench-card{border-radius:15px}
+.verdict{border-radius:18px}
+.verdict::before{height:7px}
+.v-path::before{background:linear-gradient(90deg,#dc2626,#f97316)}
+.v-ben::before{background:linear-gradient(90deg,#0b7a37,#06b6d4)}
+.tile{border-radius:14px}
+.tile-num{font-size:27px}
+/* vivid chart fills */
+.fill-green{background:linear-gradient(90deg,#059669,#22c55e)}
+.fill-amber{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.fill-blue{background:linear-gradient(90deg,#2563eb,#38bdf8)}
+.fill-red{background:linear-gradient(90deg,#dc2626,#fb7185)}
+.fill-grey{background:linear-gradient(90deg,#94a3b8,#cbd5e1)}
+.hbar{height:12px;box-shadow:inset 0 1px 3px rgba(11,18,32,.10)}
+.bar{box-shadow:inset 0 1px 2px rgba(11,18,32,.08)}
+/* heatmap: richest colour */
+.hm-cell{border-radius:13px;box-shadow:0 10px 22px rgba(11,18,32,.15)}
+.hm-value{font-size:32px;letter-spacing:-.01em}
+.heat-scale{height:12px;background:linear-gradient(90deg,#1e40af,#0d9488,#16a34a,#84cc16,#facc15,#f97316,#dc2626,#b91c1c)}
+/* report dashboard: sticky summary rail + main column */
+.report-grid{display:grid;grid-template-columns:372px minmax(0,1fr);gap:22px;align-items:start}
+.rail{position:sticky;top:86px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.rail .verdict{padding:24px 22px}
+.rail .verdict-top{flex-direction:column;gap:16px}
+.rail .verdict-title{font-size:27px}
+.rail .gauge-wrap{margin:2px auto 0}
+.rail .gate-wrap{text-align:left;min-width:0}
+.rail .missing-chips{justify-content:flex-start}
+.rail .tiles{grid-template-columns:repeat(2,1fr);margin-top:0}
+.rail .report-actions{margin-top:0;flex-direction:column;align-items:flex-start}
+.report-main{min-width:0}
+.gauge-num{font-size:48px}
+/* mini bar gradient edge */
+#mini-bar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#0b7a37,#06b6d4,#7c3aed)}
+.btn-mini:hover{border-color:var(--violet);color:#5b21b6;box-shadow:0 6px 16px rgba(124,58,237,.18)}
+.design-num{background:linear-gradient(135deg,#0b7a37,#06b6d4)}
+.stage.active{background:linear-gradient(120deg,#0b7a37,#12a594);border-color:transparent}
+/* staging-only preview badge */
+.v4-badge{position:fixed;right:16px;bottom:16px;z-index:90;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.12em;font-weight:500;color:#fff;background:linear-gradient(120deg,#7c3aed,#06b6d4);padding:8px 14px;border-radius:999px;box-shadow:0 10px 24px rgba(124,58,237,.35)}
+@media (max-width:1020px){
+  .report-grid{grid-template-columns:1fr}
+  .rail{position:static}
+  .rail .verdict-top{flex-direction:row}
+  .rail .gauge-wrap{margin:0}
+  .rail .report-actions{flex-direction:row;align-items:center}
+}
+@media (max-width:900px){
+  .hero{padding:44px 0 26px}
+  .hero h1{font-size:40px;letter-spacing:-.025em}
+}
+
+/* ================= v5: bright biotech company layer ================= */
+.nav-company{gap:26px}
+.nav-company a{color:var(--ink);font-weight:500}
+.nav-company a:hover{color:var(--green-dark);text-decoration:none}
+.btn-nav{background:linear-gradient(120deg,#0b7a37,#0e8a42);color:#fff !important;font-weight:600;padding:10px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(11,122,55,.32);transition:transform .15s ease,box-shadow .15s ease}
+.btn-nav:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(11,122,55,.4);color:#fff}
+.brand .product{font-size:21px}
+.kicker{font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:500;letter-spacing:.18em;color:var(--green-dark);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.kicker::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,#0b7a37,#12a594);border-radius:2px}
+.big-title{font-size:38px;font-weight:700;letter-spacing:-.025em;line-height:1.12;margin:0}
+.big-sub{font-size:15.5px;max-width:720px;margin:10px 0 22px}
+.company{margin-top:88px}
+/* marketing hero */
+.hero-mkt{padding:74px 0 10px}
+.hero-mkt h1{font-size:55px;line-height:1.05}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn-ghost{background:#fff;border:1.5px solid var(--border);color:var(--ink);display:inline-block;text-decoration:none}
+.btn-ghost:hover{border-color:var(--green);color:var(--green-dark);transform:translateY(-1px);box-shadow:0 8px 22px rgba(11,122,55,.14)}
+.hero-ctas .btn{text-decoration:none;display:inline-flex;align-items:center}
+.hero-trust{display:flex;align-items:center;gap:9px;margin-top:26px;flex-wrap:wrap}
+.hero-visual{position:relative;padding-bottom:38px}
+.art-card{max-width:480px;margin-left:auto}
+.example-card{position:absolute;left:0;bottom:0;width:336px;background:linear-gradient(rgba(255,255,255,.97),rgba(255,255,255,.97)) padding-box,linear-gradient(135deg,rgba(11,122,55,.5),rgba(6,182,212,.45),rgba(124,58,237,.4)) border-box;border:1.5px solid transparent;border-radius:16px;box-shadow:var(--shadow-lg);padding:16px 18px 14px}
+.ex-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ex-tag{font-family:'Roboto Mono',monospace;font-size:10.5px;font-weight:500;letter-spacing:.14em;color:var(--green-dark);background:var(--green-tint);border:1px solid #a3d9b1;border-radius:999px;padding:3px 10px}
+.ex-run{font-size:11.5px;color:var(--faint);font-weight:500}
+.ex-gene{font-family:'Space Grotesk';font-size:21px;font-weight:700;letter-spacing:-.01em}
+.ex-genomic{display:block;font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:400;color:var(--grey);margin-top:2px}
+.ex-verdict{font-size:16.5px;font-weight:700;color:var(--red-dark);margin-top:7px}
+.ex-bar{position:relative;height:10px;border-radius:999px;background:linear-gradient(90deg,#16a34a,#84cc16,#facc15,#f97316,#dc2626);margin:12px 0 10px}
+.ex-marker{position:absolute;left:calc(98.9% - 8px);top:-3px;width:16px;height:16px;border-radius:50%;background:#fff;border:3.5px solid #1d1d1f}
+.ex-row{display:flex;justify-content:space-between;font-size:13px;color:var(--grey);padding:3px 0}
+.ex-row b{color:var(--ink);font-variant-numeric:tabular-nums}
+.ex-badge{display:inline-block;background:var(--amber-tint);border:1px solid var(--amber-border);color:#7a4d00;font-weight:600;font-size:12px;border-radius:999px;padding:4px 11px;margin-top:8px}
+.ex-note{font-size:11.5px;color:var(--faint);line-height:1.5;margin:9px 0 0}
+.stats-band{margin-top:40px}
+/* product section */
+#product .search-zone{margin-top:4px;max-width:820px}
+/* how it works */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step-card{background:#fff;border:1px solid var(--card-border);border-radius:15px;box-shadow:var(--shadow);padding:22px;transition:transform .18s ease,box-shadow .18s ease}
+.step-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.step-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.step-num{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--faint)}
+.step-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center}
+.step-card:nth-child(1) .step-ico{background:#ecfeff;color:#0891b2}
+.step-card:nth-child(2) .step-ico{background:#f5f3ff;color:#7c3aed}
+.step-card:nth-child(3) .step-ico{background:#e0f2fe;color:#0284c7}
+.step-card:nth-child(4) .step-ico{background:#f0fdfa;color:#0d9488}
+.step-card:nth-child(5) .step-ico{background:#f0fdf4;color:#0b7a37}
+.step-card:nth-child(6) .step-ico{background:#fff7ed;color:#ea580c}
+.step-card h3{font-size:17.5px;margin:0 0 7px;letter-spacing:-.01em}
+.step-card p{font-size:13.5px;color:var(--grey);line-height:1.6;margin:0}
+/* features */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat-card{background:#fff;border:1px solid var(--card-border);border-radius:15px;box-shadow:var(--shadow);padding:22px;transition:transform .18s ease,box-shadow .18s ease}
+.feat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.feat-ico{width:46px;height:46px;border-radius:13px;background:var(--green-tint);color:var(--green-dark);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.feat-card:nth-child(2) .feat-ico{background:#fef9e7;color:#b06000}
+.feat-card:nth-child(3) .feat-ico{background:#e0f2fe;color:#0284c7}
+.feat-card:nth-child(4) .feat-ico{background:#fdf2f8;color:#be185d}
+.feat-card:nth-child(5) .feat-ico{background:#f5f3ff;color:#7c3aed}
+.feat-card:nth-child(6) .feat-ico{background:#f0fdfa;color:#0d9488}
+.feat-card h3{font-size:16.5px;margin:0 0 7px;letter-spacing:-.01em}
+.feat-card p{font-size:13.5px;color:var(--grey);line-height:1.6;margin:0}
+/* dark company footer */
+.footer-dark{background:linear-gradient(180deg,#0a2540,#061a2f);color:#c9d6e2;margin-top:96px;padding:56px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:38px}
+.foot-logo{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.foot-word{font-family:'Space Grotesk';font-size:21px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.foot-brand p{font-size:13.5px;line-height:1.65;color:#a9bdd0;margin:0 0 12px;max-width:430px}
+.foot-note{font-size:12.5px !important;color:#7e97ad !important}
+.foot-col h4{color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:4px 0 14px}
+.foot-col a{display:block;color:#a9bdd0;text-decoration:none;font-size:14px;padding:5px 0;transition:color .15s ease}
+.foot-col a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:38px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#8fa5ba}
+@media (max-width:1020px){
+  .steps-grid,.feat-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero-mkt{padding:46px 0 6px}
+  .hero-mkt h1{font-size:38px}
+  .big-title{font-size:29px}
+  .company{margin-top:60px}
+  .hero-visual{padding-bottom:0}
+  .art-card{margin:0 auto}
+  .example-card{position:static;width:auto;margin-top:14px}
+  .foot-grid{grid-template-columns:1fr;gap:26px}
+  .nav-company{gap:14px}
+  .nav-company a:not(.btn-nav){display:none}
+}
+@media (max-width:640px){
+  .steps-grid,.feat-grid{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -353,36 +571,68 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
 <div id="mini-bar" aria-hidden="true"><div class="wrap mini-in"><span class="mini-name" id="mini-name"></span><span class="chip chip-neu" id="mini-chip"></span><span class="mini-prob" id="mini-prob"></span><button id="mini-close" type="button" aria-label="Dismiss">×</button></div></div>
 <header class="topbar">
   <div class="wrap topbar-in">
-    <a class="brand" href="/">
+    <a class="brand" href="#top">
       <span class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3c0 6 10 6 10 12" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M17 3c0 6-10 6-10 12" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".65"/><path d="M8.5 6.5h7M8.5 17.5h7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></span>
-      <span><span class="product">Variant Research Agent</span><br><span class="brand-sub">by Omevra</span></span>
+      <span><span class="product">Omevra</span><br><span class="brand-sub">Variant Research Agent</span></span>
     </a>
-    <nav class="nav">
-      <span class="sys"><span class="pulse-dot"></span><span class="sys-txt">SYSTEM ONLINE</span><span class="sys-mono">AUROC 0.970 · 27,748 variants</span></span>
-      <a href="https://github.com/umeshlinga/variant-research-agent" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">Benchmark</a>
-      <span class="pill">Research only</span>
+    <nav class="nav nav-company">
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#science">Science</a>
+      <a href="#benchmark">Benchmark</a>
+      <a class="btn-nav" href="#product">Try the agent</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap" id="top">
 
-  <section class="hero">
+  <section class="hero hero-mkt">
     <div class="mesh"></div><div class="blob b1"></div><div class="blob b2"></div>
     <div class="hero-grid">
-      <div>
-        <h1>Variant in.<br><span class="accent">Research dossier</span> out.</h1>
-        <p class="lede">An autonomous agent that plans the investigation, gathers cited evidence, runs its own analyses in a sandbox, judges with a calibrated model, reviews its own verdict adversarially, and designs the experiment that would settle the variant — <b>or declines, honestly, when the evidence is too thin. Not for clinical use.</b></p>
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span class="pulse-dot"></span>OMEVRA · AUTONOMOUS VARIANT RESEARCH</div>
+        <h1>Variant research, done like a <span class="accent">team of scientists</span>.</h1>
+        <p class="lede">Give the agent a human genetic variant and it works the case end to end: it plans the investigation, gathers cited evidence, runs its own analyses, judges with a calibrated model, and argues with its own verdict — then writes an auditable dossier, or <b>declines honestly when the evidence is too thin. Not for clinical use.</b></p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#product">Research a variant</a>
+          <a class="btn btn-ghost" href="#science">See the benchmark</a>
+        </div>
+        <div class="hero-trust"><span class="pulse-dot"></span><span class="sys-txt">SYSTEM ONLINE</span><span class="sys-mono">CALIBRATED MODEL AUROC 0.970 · 27,748-VARIANT TEMPORAL TEST SET · EVERY CLAIM CITED</span></div>
       </div>
-      <div class="helix-wrap">
-        <div class="helix-card">
-          <svg id="helix" viewBox="0 0 460 250" role="img" aria-label="Animated DNA double helix"></svg>
-          <div class="helix-cap">Every claim cited · every number measured · refusals included</div>
+      <div class="hero-visual">
+        <div class="helix-card art-card">
+          <svg id="helix" viewBox="0 0 460 250" role="img" aria-label="Stylised DNA double helix artwork"></svg>
+          <div class="helix-cap">Stylised artwork — the science is in the dossier</div>
+        </div>
+        <div class="example-card">
+          <div class="ex-head"><span class="ex-tag">EXAMPLE VERDICT</span><span class="ex-run">reproduce it below ↓</span></div>
+          <div class="ex-gene">ARSB <span class="ex-genomic">chr5:78,839,391 T&gt;G · c.1178A&gt;C</span></div>
+          <div class="ex-verdict">Moderate pathogenic-leaning</div>
+          <div class="ex-bar"><span class="ex-marker"></span></div>
+          <div class="ex-row"><span>Calibrated P(pathogenic)</span><b>0.989</b></div>
+          <div class="ex-row"><span>Evidence gathered</span><b>8 items · 3 sandbox analyses</b></div>
+          <div class="ex-badge">⚠ Reviewer downgraded: strong → moderate</div>
+          <p class="ex-note">A real verdict in the published benchmark configuration — run ARSB in the product section and compare.</p>
         </div>
       </div>
     </div>
+    <div class="stats-band" id="benchmark">
+    <div class="stats" id="stats">
+      <div class="stat"><div class="stat-num" data-count="300" data-dec="0">0</div><div class="stat-label">variants benchmarked on a ClinVar temporal split</div></div>
+      <div class="stat"><div class="stat-num" data-count="89.2" data-dec="1" data-suffix="%">0</div><div class="stat-label">accuracy on concluded cases (99 of 111)</div></div>
+      <div class="stat"><div class="stat-num" data-count="100" data-dec="0" data-suffix="%">0</div><div class="stat-label">decline precision — 189 of 189 declines were protective</div></div>
+      <div class="stat"><div class="stat-num" data-count="0.970" data-dec="3">0</div><div class="stat-label">calibrated model AUROC on the temporal test set</div></div>
+      <div class="stat"><div class="stat-num" data-count="48" data-dec="0">0</div><div class="stat-label">automated tests passing</div></div>
+    </div>
+    <p class="stats-note">Every number above is from the published benchmark — see the <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">benchmark report</a>.</p>
+    </div>
+  </section>
 
+  <section class="section company" id="product">
+    <div class="kicker">THE PRODUCT</div>
+    <h2 class="big-title">Put the agent to work</h2>
+    <p class="section-sub big-sub">One variant in, one auditable dossier out. Ask for a variant by gene and change, ClinVar allele id, or genomic coordinate — the agent does the rest, and shows its working.</p>
     <div class="search-zone">
       <form class="search-bar" id="search-form">
         <input id="variant-input" type="text" autocomplete="off" spellcheck="false"
@@ -397,20 +647,27 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
         <button class="chip-btn" data-variant="allele:28034">allele:28034<small>declined · honest refusal</small></button>
       </div>
     </div>
-
-    <div class="stats" id="stats">
-      <div class="stat"><div class="stat-num" data-count="300" data-dec="0">0</div><div class="stat-label">variants benchmarked on a ClinVar temporal split</div></div>
-      <div class="stat"><div class="stat-num" data-count="89.2" data-dec="1" data-suffix="%">0</div><div class="stat-label">accuracy on concluded cases (99 of 111)</div></div>
-      <div class="stat"><div class="stat-num" data-count="100" data-dec="0" data-suffix="%">0</div><div class="stat-label">decline precision — 189 of 189 declines were protective</div></div>
-      <div class="stat"><div class="stat-num" data-count="0.970" data-dec="3">0</div><div class="stat-label">calibrated model AUROC on the temporal test set</div></div>
-      <div class="stat"><div class="stat-num" data-count="48" data-dec="0">0</div><div class="stat-label">automated tests passing</div></div>
-    </div>
-    <p class="stats-note">Every number above is from the published benchmark — see the <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">benchmark report</a>.</p>
   </section>
 
-  <section class="section" id="benchmark">
-    <div class="sec-label">00 / BENCHMARK</div>
-    <div class="section-head"><h2 class="section-title">How it performed</h2></div>
+  <section id="results"></section>
+
+  <section class="section company" id="how">
+    <div class="kicker">HOW IT WORKS</div>
+    <h2 class="big-title">Six stages, one dossier</h2>
+    <p class="section-sub big-sub">The agent mirrors how a careful research team actually works a variant — including the part where the team argues with itself before signing anything.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">01</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg></span></div><h3>Plan</h3><p>Reads the variant and lays out the investigation before touching any data — what to gather, what would count, what would not.</p></div>
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">02</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8v-13"/><path d="M4.5 12c0 1.6 3.4 2.8 7.5 2.8s7.5-1.2 7.5-2.8"/></svg></span></div><h3>Gather</h3><p>Pulls cited records only: the frozen ClinVar record, gnomAD population frequencies, and the literature trail for the variant.</p></div>
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">03</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="10.2" y="10.2" width="3.6" height="3.6"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg></span></div><h3>Compute</h3><p>Writes its own small analyses and runs them in a no-network sandbox — percentiles, predictor agreement, population context.</p></div>
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">04</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M8 21h8"/><path d="M12 6.5H5.5M12 6.5h6.5"/><path d="M5.5 6.5L3.2 11.5a3.6 3.6 0 0 0 4.6 0L5.5 6.5z"/><path d="M18.5 6.5l-2.3 5a3.6 3.6 0 0 0 4.6 0l-2.3-5z"/></svg></span></div><h3>Judge</h3><p>Weighs the evidence with an isotonic-calibrated model and the cite-or-decline bar: below three independent items, it refuses.</p></div>
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">05</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 2.6v5.4c0 4.6-3 7.7-7 9.2-4-1.5-7-4.6-7-9.2V5.6L12 3z"/><path d="M9 11.8l2.1 2.1 3.9-4.1"/></svg></span></div><h3>Review</h3><p>An adversarial second opinion checks independence and calibration, and can downgrade the verdict's confidence — never upgrade it.</p></div>
+      <div class="step-card reveal"><div class="step-top"><span class="step-num">06</span><span class="step-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3h4M10.6 3v5.1L5.7 17a2.4 2.4 0 0 0 2.1 3.5h8.4a2.4 2.4 0 0 0 2.1-3.5L13.4 8.1V3"/><path d="M8.2 14.5h7.6"/></svg></span></div><h3>Design</h3><p>Proposes the validation experiments that would settle the variant, with the deciding results stated in advance.</p></div>
+    </div>
+  </section>
+
+  <section class="section company" id="science">
+    <div class="kicker">THE SCIENCE</div>
+    <h2 class="big-title">Benchmarked — weaknesses included</h2>
     <p class="section-sub">Published results from the temporal-split benchmark: 300 variants the agent had never been scored on, judged against their later ClinVar reclassifications. Source: BENCHMARK_REPORT.md in the repository. The fourth panel is the reviewer’s measured weakness, published as-is — the same honesty rule as the declines.</p>
     <div class="bench-grid">
       <div class="card bench-card poster p-green reveal">
@@ -453,15 +710,50 @@ details.dossier pre{margin:0;padding:18px;overflow-x:auto;font-family:'Roboto Mo
     </div>
   </section>
 
-  <section id="results"></section>
-
-  <footer class="footer">
-    <p><strong>Research project only — not for clinical use.</strong> Evidence summaries are not clinical classifications.</p>
-    <p>Temporal integrity: only prediction-time records (ClinVar frozen 2024-01) are used as evidence; later reclassifications are never loaded. This demo runs in the offline benchmark configuration — deterministic local data, no LLM, no live gatherers. Distribution graphs are computed from the bundled temporal test set itself.</p>
-    <p><a href="https://github.com/umeshlinga/variant-research-agent" target="_blank" rel="noopener">Source on GitHub</a> · <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">Benchmark report</a> · Built on the vus-evidence-agent temporal test set (27,748 variants).</p>
-  </footer>
+  <section class="section company" id="features">
+    <div class="kicker">WHY OMEVRA</div>
+    <h2 class="big-title">Built to be believed</h2>
+    <p class="section-sub big-sub">Six design rules keep the agent honest. They are also why its benchmark publishes a weakness panel next to the wins.</p>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span><h3>Temporal integrity</h3><p>Evidence comes only from records frozen at prediction time (ClinVar, January 2024). The agent never trains on the future — and never peeks at it.</p></div>
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5h11V20L12 16.4 6.5 20z"/></svg></span><h3>Cite-or-decline bar</h3><p>Fewer than three independent evidence items and the agent refuses to conclude. The refusal is a first-class result, not a failure mode.</p></div>
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.2v9.6L12 21l-8-4.2V7.2L12 3z"/><path d="M4.2 7.3l7.8 4 7.8-4M12 11.3V21"/></svg></span><h3>Sandboxed self-analysis</h3><p>The agent writes its own analysis code and runs it in isolation: no network, a 30-second timeout, and failures shown in the open.</p></div>
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.6 12 5.6 21.5 12 21.5 12 18 18.4 12 18.4 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Independent self-review</h3><p>A separate adversarial stage audits every verdict. It can downgrade confidence language; it can never upgrade a verdict or reverse a decline.</p></div>
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 16.5a8.8 8.8 0 1 1 15.6 0"/><path d="M12 15.5l4.2-5.8"/><circle cx="12" cy="15.5" r="1.3" fill="currentColor" stroke="none"/><path d="M5 16.5h2.2M17 16.5h2.2"/></svg></span><h3>Calibrated probabilities</h3><p>Reported probabilities are isotonic-calibrated on a temporal test set, so when the agent says 0.99, the number is meant to be believed.</p></div>
+      <div class="feat-card reveal"><span class="feat-ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v13.5H7z"/><path d="M14 3v4h4M9.5 12h5M9.5 15.5h5"/></svg></span><h3>Auditable dossiers</h3><p>Every verdict ships with a full dossier: each claim cited to its record, each analysis reproducible, each downgrade explained.</p></div>
+    </div>
+  </section>
 
 </div>
+
+<footer class="footer-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo"><span class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3c0 6 10 6 10 12" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M17 3c0 6-10 6-10 12" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".65"/><path d="M8.5 6.5h7M8.5 17.5h7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="foot-word">Omevra</span></div>
+        <p>Variant Research Agent — autonomous variant research with an audit trail. Every claim cited, every refusal explained, every weakness published.</p>
+        <p class="foot-note">Built on the vus-evidence-agent temporal test set (27,748 variants); ClinVar frozen January 2024. This demo runs the offline benchmark configuration — deterministic local data, no LLM, no live gatherers.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <a href="#product">Try the agent</a>
+        <a href="#how">How it works</a>
+        <a href="#science">The science</a>
+        <a href="#features">Features</a>
+      </div>
+      <div class="foot-col">
+        <h4>Resources</h4>
+        <a href="https://github.com/umeshlinga/variant-research-agent" target="_blank" rel="noopener">Source on GitHub</a>
+        <a href="https://github.com/umeshlinga/variant-research-agent/blob/main/BENCHMARK_REPORT.md" target="_blank" rel="noopener">Benchmark report</a>
+        <a href="https://huggingface.co/spaces/Evidra/variant-research-agent" target="_blank" rel="noopener">Live app on Hugging Face</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Omevra</span>
+      <span class="foot-legal">Research project only — not for clinical use. Evidence summaries are not clinical classifications.</span>
+    </div>
+  </div>
+</footer>
 
 <script>
 "use strict";
@@ -482,14 +774,14 @@ const easeOut = k => 1 - Math.pow(1 - k, 3);
   const rungs = [], dotsA = [], dotsB = [];
   const N = 13;
   for (let i = 0; i < N; i++){
-    const line = mk("line", {stroke: "#9fd8bb", "stroke-width": 2, "stroke-linecap": "round"});
+    const line = mk("line", {stroke: (i % 2 ? "#a5f3fc" : "#9fd8bb"), "stroke-width": 2, "stroke-linecap": "round"});
     svg.appendChild(line); rungs.push(line);
   }
   const pathA = mk("path", {fill: "none", stroke: "#0b7a37", "stroke-width": 3.4, "stroke-linecap": "round"});
-  const pathB = mk("path", {fill: "none", stroke: "#12a594", "stroke-width": 3.4, "stroke-linecap": "round", opacity: .85});
+  const pathB = mk("path", {fill: "none", stroke: "#06b6d4", "stroke-width": 3.4, "stroke-linecap": "round", opacity: .85});
   svg.appendChild(pathB); svg.appendChild(pathA);
   for (let i = 0; i < N; i++){
-    const a = mk("circle", {r: 4.6, fill: "#0b7a37"}); const b = mk("circle", {r: 4.6, fill: "#12a594"});
+    const a = mk("circle", {r: 4.6, fill: "#0b7a37"}); const b = mk("circle", {r: 4.6, fill: "#06b6d4"});
     svg.appendChild(a); svg.appendChild(b); dotsA.push(a); dotsB.push(b);
   }
   const pts = t => {
@@ -518,6 +810,8 @@ const easeOut = k => 1 - Math.pow(1 - k, 3);
       r.setAttribute("opacity", (0.18 + 0.5 * Math.abs(a[2])).toFixed(2));
       dotsA[i].setAttribute("cx", a[0]); dotsA[i].setAttribute("cy", a[1]);
       dotsB[i].setAttribute("cx", b[0]); dotsB[i].setAttribute("cy", b[1]);
+      const rr = (3.2 + 2.6 * Math.abs(a[2])).toFixed(1);
+      dotsA[i].setAttribute("r", rr); dotsB[i].setAttribute("r", rr);
     }
     requestAnimationFrame(frame);
   }
@@ -637,8 +931,8 @@ function gaugeSVG(p){
   const dx = (110 + 90 * Math.cos(a)).toFixed(1), dy = (108 - 90 * Math.sin(a)).toFixed(1);
   return `<svg viewBox="0 0 220 124" width="216" role="img" aria-label="Probability gauge">
     <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#0b7a37"/><stop offset=".38" stop-color="#a8c686"/>
-      <stop offset=".62" stop-color="#f9ab00"/><stop offset="1" stop-color="#b91c1c"/>
+      <stop offset="0" stop-color="#16a34a"/><stop offset=".34" stop-color="#84cc16"/>
+      <stop offset=".55" stop-color="#facc15"/><stop offset=".78" stop-color="#f97316"/><stop offset="1" stop-color="#dc2626"/>
     </linearGradient></defs>
     <path d="M 20 108 A 90 90 0 0 1 200 108" fill="none" stroke="#eef0f2" stroke-width="15" stroke-linecap="round"/>
     <path class="gauge-arc" d="M 20 108 A 90 90 0 0 1 200 108" fill="none" stroke="url(#gg)" stroke-width="15" stroke-linecap="round"
@@ -652,7 +946,7 @@ function gaugeSVG(p){
 
 /* ---------------- section headers (tech chrome) ---------------- */
 function secHead(num, label, title, sub){
-  return `<div class="sec-head2"><div class="sec-label">${num} / ${esc(label)}</div>` +
+  return `<div class="sec-head2 sacc-${num}"><div class="sec-label">${num} / ${esc(label)}</div>` +
     `<h3 class="section-title" style="font-size:21px;margin:0">${esc(title)}</h3>` +
     (sub ? `<p class="section-sub">${esc(sub)}</p>` : "") + `</div>`;
 }
@@ -803,7 +1097,7 @@ function histSVG(d, kind){
   let bars = "";
   bins.forEach((c, i) => {
     const h = Math.max(1, (c / max) * (base - top));
-    bars += `<rect class="hist-bar" x="${(left + i * bw).toFixed(1)}" y="${base}" width="${(bw - 1.5).toFixed(1)}" height="0" data-h="${h.toFixed(1)}" data-y="${(base - h).toFixed(1)}" rx="1.5" fill="${kind === "af" ? "#1a73e8" : "#12a594"}" opacity="0.78"></rect>`;
+    bars += `<rect class="hist-bar" x="${(left + i * bw).toFixed(1)}" y="${base}" width="${(bw - 1.5).toFixed(1)}" height="0" data-h="${h.toFixed(1)}" data-y="${(base - h).toFixed(1)}" rx="1.5" fill="url(#hg-${kind})" opacity="0.9"></rect>`;
   });
   let marker = "";
   if (d.value != null){
@@ -820,7 +1114,7 @@ function histSVG(d, kind){
   }
   const l0 = d.scale === "log10" ? "10" + sup(Math.round(d.edges[0])) : Number(d.edges[0]).toFixed(1);
   const l1 = d.scale === "log10" ? "10" + sup(Math.round(d.edges[n])) : Number(d.edges[n]).toFixed(1);
-  return `<svg viewBox="0 0 ${W} ${H}" role="img"><line x1="${left}" y1="${base}" x2="${right}" y2="${base}" stroke="#dadce0"/>${bars}${marker}` +
+  return `<svg viewBox="0 0 ${W} ${H}" role="img"><defs><linearGradient id="hg-am" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#0d9488"/></linearGradient><linearGradient id="hg-revel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#0284c7"/></linearGradient><linearGradient id="hg-af" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><line x1="${left}" y1="${base}" x2="${right}" y2="${base}" stroke="#dadce0"/>${bars}${marker}` +
     `<text class="hist-axis" x="${left}" y="${base + 17}">${esc(l0)}</text>` +
     `<text class="hist-axis" x="${right}" y="${base + 17}" text-anchor="end">${esc(l1)}</text></svg>`;
 }
@@ -840,9 +1134,9 @@ function histCard(title, sub, d, kind, valueText){
 /* ---------------- agreement donut ---------------- */
 function donutSVG(frac){
   const r = 40, c = 2 * Math.PI * r;
-  return `<svg viewBox="0 0 110 110" width="112" height="112" role="img" aria-label="Predictor agreement">
+  return `<svg viewBox="0 0 110 110" width="112" height="112" role="img" aria-label="Predictor agreement"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
     <circle cx="55" cy="55" r="${r}" fill="none" stroke="#e8eaed" stroke-width="13"/>
-    <circle class="donut-arc" cx="55" cy="55" r="${r}" fill="none" stroke="#0b7a37" stroke-width="13" stroke-linecap="round"
+    <circle class="donut-arc" cx="55" cy="55" r="${r}" fill="none" stroke="url(#dg)" stroke-width="13" stroke-linecap="round"
       stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${c.toFixed(1)}" data-off="${(c * (1 - frac)).toFixed(1)}"
       transform="rotate(-90 55 55)" style="transition:stroke-dashoffset 1.1s cubic-bezier(.22,.8,.3,1)"/>
     <text class="donut-center" x="55" y="53" text-anchor="middle" font-size="19" fill="#1d1d1f">${Math.round(frac * 100)}%</text>
@@ -1036,7 +1330,7 @@ function renderReport(state){
   const notes = (state.notes || []).map(esc).join(" ");
   const prov = `<p class="prov">Plan mode: ${esc(state.plan_mode || "template")} · LLM mode: offline · Gatherers: ClinVar (local records), gnomAD (recorded lookup), PubMed (not queried — offline) · Pipeline events: ${(state.events || []).length}.${notes ? " " + notes : ""}</p>`;
 
-  return `<div class="report">${hero}${actions}${context}${tiles}${heat}${R(distGrid)}${R(vizRow2)}${R(evidenceHTML)}${R(analysesHTML)}${R(reviewerHTML)}${R(designsHTML)}${R(narrativeHTML)}${dossierHTML}${prov}</div>`;
+  return `<div class="report report-grid"><div class="rail">${hero}${tiles}${actions}</div><div class="report-main">${context}${heat}${R(distGrid)}${R(vizRow2)}${R(evidenceHTML)}${R(analysesHTML)}${R(reviewerHTML)}${R(designsHTML)}${R(narrativeHTML)}${dossierHTML}${prov}</div></div>`;
 }
 
 /* ---------------- v3: reveal, sticky mini bar, share actions ---------------- */
@@ -1115,6 +1409,7 @@ function wireReportActions(state){
 /* ---------------- post-render animation ---------------- */
 function animateReport(state){
   $$(".reveal").forEach(el => revealIO.observe(el));
+  $$("#results .reveal").forEach((el, i) => { el.style.transitionDelay = Math.min(i * 70, 420) + "ms"; });
   setTimeout(() => $$(".reveal").forEach(el => el.classList.add("in")), 1800);
   requestAnimationFrame(() => requestAnimationFrame(() => {
     $$(".gauge-arc").forEach(el => { el.style.strokeDashoffset = el.dataset.off; });
